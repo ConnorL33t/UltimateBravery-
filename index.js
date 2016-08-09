@@ -1,4 +1,4 @@
-(function(){
+;(function(){
 
 var express = require('express'),
   routes = require('./routes'),
