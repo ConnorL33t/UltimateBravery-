@@ -5,22 +5,23 @@
 angular.module('ultimateBravery')
     .component('uBComponent', {
         templateUrl: 'ultimatebraveryapp/templates/homepage.html',
-        controller: UBController,
-        controllerAs: 'ubc'
+        controller: UBController
+        
     
     })
 
 
 
-    UBController.$inject = ['$state', '$stateParams', 'LeagueService']
+    UBController.$inject = ['$state','LeagueService']
 
 
-    function UBController ($state, $stateParams, LeagueService){
+    function UBController ($state, LeagueService){
         let ubc = this
 
 
 
         ubc.showSummonerProfile = function(){
+            debugger
             $state.go('landingpage')
         }
 

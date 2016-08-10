@@ -1,6 +1,10 @@
-; (function () {
+;(function(){
 
-    let app = angular.module('ultimateBravery', ['ui-router'])
+
+    angular.module('ultimateBravery', ['ui.router'])
+
+
+        let app = angular.module('ultimateBravery')
 
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -19,14 +23,15 @@
 
         app.controller('appController', appController);
 
-        appController.$inject = ['LeagueService'];
+        appController.$inject = ['$state','LeagueService'];
 
-        function appController(LeagueService) {
+        function appController($state, LeagueService) {
             let ac = this;
 
         }
     
 }]);
+
 
 
 }());

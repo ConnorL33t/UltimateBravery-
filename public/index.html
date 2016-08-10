@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="assests/homepage.css">
     <link rel="stylesheet" href="assests/landingpage.css">
 </head>
-<body ng-app="appController as ac">
+<body ng-app="appController">
 
 
    
 
+<div ui-view>
 
 
 <l-p-component></l-p-component>
@@ -24,7 +25,8 @@
 
 
 
-<div ui-view></div>
+
+</div>
 
    
 
@@ -38,8 +40,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-beta.1/angular-ui-router.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-<script src="init.js"></script>
-<!--<script src="state.js"></script>-->
+<script src="app.js"></script>
+
+<!--<script src="init.js"></script>
+<script src="state.js"></script>-->
 
 <!--COMPONENTS-->
 
