@@ -5,13 +5,13 @@
 angular.module('ultimateBravery')
     .component('uBComponent', {
         templateUrl: 'ultimatebraveryapp/templates/homepage.html',
-        controller: UBControlLer,
+        controller: UBController,
     
     })
 
 
 
-    function UBControlLer (){
+    function UBController (){
         let $ctrl = this
     }
 
