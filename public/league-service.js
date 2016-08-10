@@ -9,8 +9,8 @@
         var MasterLeagueList = [];
 
         var baseUrl ='https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=RGAPI-42FA944E-296C-4CB9-B918-0474FDBC93BA'
-
-        this.getLeagueList = function(sucessCallback, failCallback){
+       
+        ls.getLeagueList = function(sucessCallback, failCallback){
             var list = getMasterLeagueList();
             if(list){
                 return sucessCallback(list);
@@ -32,5 +32,6 @@
             }
             return JSON.parse(list);
         }
+        console.log
     }
 }());
