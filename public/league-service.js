@@ -31,8 +31,8 @@
             localStorage.setItem('masterLeagueList', JSON.stringify(data));
         }
         function getMasterLeagueList(){
-            var list = localStorage.getItem('masterLeagueList');
-            if(list){
+            var data = localStorage.getItem('masterLeagueList');
+            if(data){
                 masterLeagueList = JSON.parse(list);
             }
         
