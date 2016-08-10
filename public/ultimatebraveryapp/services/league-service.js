@@ -12,7 +12,7 @@
             localStorage.setItem('champs', JSON.stringify(champs))
         }
        
-        ls.getLeagueList = function(cb){
+        this.getLeagueList = function(cb){
             // var list = getMasterLeagueList();
             // if(list){
             //     return sucessCallback(list);
@@ -23,13 +23,14 @@
             }).then(function successCallback(response) {
                 var champs = response.data.data;
 
+                console.log(champs)
                 for(var champ in champs){
                     champs[champ].img = `/image/lolimages/img/champion/${champ}.png`
                 }
-
-                console.log(champs)
+               
                 saveMasterLeagueList(champs)
                 cb(champs)
+           
                 // return masterLeagueList()
             }, function errorCallback(response) {
 
