@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assests/homepage.css">
     <link rel="stylesheet" href="assests/landingpage.css">
 </head>
-<body ng-controller="appController">
+<body ng-app="appController as ac">
 
 
    
@@ -36,11 +36,22 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-beta.1/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 <script src="init.js"></script>
-<script src="state.js"></script>
-<script src="ultimatebraveryapp/services/league-service.js"></script>
+<!--<script src="state.js"></script>-->
+
+<!--COMPONENTS-->
+
+<script src="ultimatebraveryapp/components/landingpage.js"></script>
 <script src="ultimatebraveryapp/components/homepage.js"></script>
-<script src="ultimatebraveryapp/components/landingpage.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<!--SERVICES-->
+<script src="ultimatebraveryapp/services/league-service.js"></script>
+
+
+
     
 </body>
 </html>

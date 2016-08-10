@@ -22,6 +22,7 @@
         appController.$inject = ['LeagueService'];
 
         function appController(LeagueService) {
+            let ac = this;
 
         }
     
