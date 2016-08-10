@@ -13,10 +13,7 @@
         }
        
         this.getLeagueList = function(cb){
-            // var list = getMasterLeagueList();
-            // if(list){
-            //     return sucessCallback(list);
-            // }
+
             $http({
                 method: 'GET',
                 url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
@@ -38,17 +35,6 @@
 
         
 
-        // function saveMasterLeagueList(data){
-        //     localStorage.setItem('masterLeagueList', JSON.stringify(data));
-        // }
-        // function getMasterLeagueList(){
-        //     var localData = localStorage.getItem('masterLeagueList');
-        //     if(localData){
-        //         masterLeagueList = JSON.parse(localData);
-        //     }
-        
-        //     return JSON.parse(data);
-        // }
         }
     }
 }());
