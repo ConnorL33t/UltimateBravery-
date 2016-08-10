@@ -44,18 +44,18 @@
 }
 
  .find-button{
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  text-shadow: 1px 1px 3px #c9c9c9;
-  font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
-  color: #E74C3C;
-  font-size: 20px;
+background: #E74C3C;
+  background-image: -webkit-linear-gradient(top, #E74C3C, #D94738);
+  background-image: -moz-linear-gradient(top, #E74C3C, #D94738);
+  background-image: -ms-linear-gradient(top, #E74C3C, #D94738);
+  background-image: -o-linear-gradient(top, #E74C3C, #D94738);
+  background-image: linear-gradient(to bottom, #E74C3C, #D94738);
+  font-family: Arial;
+  color: #E3E7E8;
+  font-size: 29px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  border: none;
 
 }
 
@@ -64,11 +64,6 @@
 }
 
 .find-button:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #b8b6b8);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #b8b6b8);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #b8b6b8);
-  background-image: -o-linear-gradient(top, #3cb0fd, #b8b6b8);
-  background-image: linear-gradient(to bottom, #3cb0fd, #b8b6b8);
+  background: #F55140;
   text-decoration: none;
 }
