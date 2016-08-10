@@ -12,10 +12,10 @@ angular.module('ultimateBravery')
 
 
 
-    UBController.$inject = ['$state', '$stateParams', 'LeagueService']
+    UBController.$inject = ['LeagueService']
 
 
-    function UBController ($state, $stateParams, LeagueService){
+    function UBController (LeagueService){
         let ubc = this
 
 

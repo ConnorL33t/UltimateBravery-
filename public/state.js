@@ -1,6 +1,6 @@
 ; (function () {
 
-    let app = angular.module('ultimateBravery', ['ui-router'])
+    let app = angular.module('ultimateBravery')
 
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 

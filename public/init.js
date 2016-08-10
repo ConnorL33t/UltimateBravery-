@@ -1,7 +1,7 @@
 ;(function(){
 
 
-    angular.module('ultimateBravery', [])
+    angular.module('ultimateBravery', ['ui.router'])
 
 
 
