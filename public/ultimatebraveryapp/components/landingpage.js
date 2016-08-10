@@ -12,9 +12,9 @@ angular.module('ultimateBravery')
 
 
     function LPController (LeagueService){
-        
-    }
+    LeagueService.getLeagueList()
 
+}
 
 
 }());
