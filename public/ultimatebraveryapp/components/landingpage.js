@@ -12,7 +12,12 @@ angular.module('ultimateBravery')
 
 
     function LPController ($state, LeagueService){
-    LeagueService.getLeagueList()
+    var $ctrl = this;
+    LeagueService.getLeagueList(function(champs){
+        $ctrl.champs = champs
+    })
+
+    
 
 }
 

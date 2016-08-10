@@ -21,7 +21,7 @@ angular.module('ultimateBravery')
 
 
         ubc.showSummonerProfile = function(){
-            debugger
+            
             $state.go('landingpage')
         }
 

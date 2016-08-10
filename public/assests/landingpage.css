@@ -1,7 +1,12 @@
 .summoner-box{
     border: 1px solid black;
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
     margin-left: 5%;
-    
+}
+
+.champs-boxes{
+    border: 1px solid black;
+    width: 80%;
+    height:80%;
 }
