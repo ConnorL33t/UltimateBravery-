@@ -12,7 +12,7 @@ angular.module('ultimateBravery')
 
 
     function LPController (LeagueService){
-       
+      console.log(LeagueService)
     }
 
 
