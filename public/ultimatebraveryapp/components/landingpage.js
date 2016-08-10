@@ -8,10 +8,10 @@ angular.module('ultimateBravery')
         controller: LPController
     
     })
-        LPController.$inject = ['LeagueService'];
+        LPController.$inject = ['$state','LeagueService'];
 
 
-    function LPController (LeagueService){
+    function LPController ($state, LeagueService){
     LeagueService.getLeagueList()
 
 }

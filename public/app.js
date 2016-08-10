@@ -23,9 +23,9 @@
 
         app.controller('appController', appController);
 
-        appController.$inject = ['LeagueService'];
+        appController.$inject = ['$state','LeagueService'];
 
-        function appController(LeagueService) {
+        function appController($state, LeagueService) {
             let ac = this;
 
         }
