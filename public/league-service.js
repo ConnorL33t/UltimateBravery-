@@ -8,7 +8,7 @@
         var ls = this;
         var MasterLeagueList = [];
 
-        var baseUrl ='https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=RGAPI-42FA944E-296C-4CB9-B918-0474FDBC93BA'
+        var baseUrl ='https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
        
         ls.getLeagueList = function(sucessCallback, failCallback){
             var list = getMasterLeagueList();
@@ -21,6 +21,7 @@
             return sucessCallback(response.data.results);
         }, failCallback);
         }
+        
 
         function saveMasterLeagueList(list){
             localStorage.setItem('masterLeagueList', JSON.stringify(list));
@@ -30,8 +31,9 @@
             if(list){
                 masterLeagueList = JSON.parse(list);
             }
+        
             return JSON.parse(list);
         }
-        console.log
+        console.log(MasterLeagueList)
     }
 }());
