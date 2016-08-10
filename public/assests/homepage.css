@@ -1,4 +1,17 @@
 
+body{
+   
+    background-color: rgba(20, 44, 62, 1);
+    min-height: 100%;
+    height: fit-content;
+    width: auto
+
+    
+    
+    
+}
+
+
 .main-background{
   position: absolute;
   top: 0;
@@ -9,6 +22,7 @@
   height: 100%;
   width: auto
 }
+
 
 .footer {
   position: fixed;
