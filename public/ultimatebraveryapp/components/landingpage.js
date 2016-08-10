@@ -12,11 +12,7 @@ angular.module('ultimateBravery')
 
 
     function LPController (LeagueService){
-        let $ctrl = this
-
-        function drawChamps(){
-            
-        }
+       
     }
 
 

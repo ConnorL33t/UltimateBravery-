@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-/*body{
+
+body{
    
     background-color: rgba(20, 44, 62, 1);
     min-height: 100%;
@@ -9,8 +9,8 @@
     
     
     
-}*/
-=======
+}
+
 
 .main-background{
   position: absolute;
@@ -22,7 +22,7 @@
   height: 100%;
   width: auto
 }
->>>>>>> 171fa478909f94f9150e7422515a742863ab8630
+
 
 .footer {
   position: fixed;

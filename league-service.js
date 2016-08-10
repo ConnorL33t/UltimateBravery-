@@ -1,6 +1,6 @@
 ;(function (){
-
-    angular.service('LeagueService', LeagueService)
+    angular.module('ultimateBravery')
+    .service('LeagueService', LeagueService)
 
     LeagueService.$inject = ['$http'];
 
@@ -8,7 +8,7 @@
         var ls = this;
         var MasterLeagueList = [];
 
-        var baseUrl ='https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/RiotSchmick?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
+        var baseUrl ='https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=RGAPI-42FA944E-296C-4CB9-B918-0474FDBC93BA'
 
         this.getLeagueList = function(sucessCallback, failCallback){
             var list = getMasterLeagueList();
@@ -30,6 +30,7 @@
             if(list){
                 masterLeagueList = JSON.parse(list);
             }
+            return JSON.parse(list);
         }
     }
-})
+}());
