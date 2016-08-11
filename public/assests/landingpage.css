@@ -47,6 +47,15 @@
     left: 0;
 }
 
+.summoner-name{
+    color: rgba(231,76, 60, 1);
+  font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 600%;
+
+
+}
+
 
 
 
