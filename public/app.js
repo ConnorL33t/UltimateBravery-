@@ -19,6 +19,11 @@
                 url: '/summonerpage',
                 component: 'lPComponent'
             })
+            .state('match', {
+                url: '/gamematch',
+                component: 'gMComponent'
+            })
+
 
 
         app.controller('appController', appController);
