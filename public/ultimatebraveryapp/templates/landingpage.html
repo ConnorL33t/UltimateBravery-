@@ -24,10 +24,8 @@
     <div class="row" id="champ-row">
          <div class="champs-col col-xs-10 col-xs-offset-1">
              <div class="champs-boxes">
-                <div ng-repeat="champ in $ctrl.champArray" id="champ-pics">
-                    <button id="champ-clicks" ng-click="$ctrl.toggle()">
+                <div ng-repeat="champ in $ctrl.champArray" class="champ-pics" ng-class="{'inactive': !$ctrl.user.champs[champ.name]}" ng-click="$ctrl.toggleChamp(champ)">
                     <img src="{{champ.img}}">
-                    </button>    
                 </div>                                
              </div>
         </div>

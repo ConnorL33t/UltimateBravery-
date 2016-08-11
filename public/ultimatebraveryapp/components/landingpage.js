@@ -14,8 +14,22 @@
     function LPController($state, LeagueService) {
         var $ctrl = this;
 
-        $ctrl.toggle = function () {
+        $ctrl.user = {
+            champs: {
+                Akali: {
+                    owned: true
+                }
+            }
+        }
 
+
+
+        $ctrl.toggleChamp = function (champ) {
+            if($ctrl.user.champs[champ.name]){
+               delete $ctrl.user.champs[champ.name] 
+            }else{
+                $ctrl.user.champs[champ.name] = {owned: true};
+            }
         }
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {

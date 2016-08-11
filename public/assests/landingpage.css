@@ -8,15 +8,15 @@
 
 
 
-#champ-pics{
+.champ-pics{
     display: inline-block;
     text-align: center;
       -moz-transform:scale(0.5);
     -webkit-transform:scale(0.5);
     transform:scale(0.5);
     margin: -30px;
-
 }
+
 #champ-clicks{
     padding: 0;
     border: none;
@@ -38,5 +38,17 @@ button.on{
 .champs-col{
     text-align: center
 }
+
+.inactive:after{
+    content: "";
+    position: absolute;
+    background-color: rgba(99, 99, 105, .8);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+
 
 
