@@ -24,12 +24,7 @@
         $ctrl.findMatchGame = function(){
             $state.go('match')
         }
-
-
         
-
-
-
         $ctrl.toggleChamp = function (champ) {
             if($ctrl.user.champs[champ.name] && $ctrl.user.champs[champ.name].owned){
                 $ctrl.user.champs[champ.name].owned = false; 
@@ -38,17 +33,23 @@
             }
         }
 
-
+        $ctrl.champBtn = "Select All Champions"
         var on = false
         $ctrl.toggleAllChamps = function(){
+            
             on = !on
+            if(on != true){
+                $ctrl.champBtn = "Select All Champions"
+            }else{
+                $ctrl.champBtn = "Un-Select All Champions"
+            }
             for(var ch in $ctrl.champArray){
                 var champ = $ctrl.champArray[ch]
                 $ctrl.user.champs[champ.name] = {
                     owned : on
-                  
                 }
             }
+            
         }
 
 
