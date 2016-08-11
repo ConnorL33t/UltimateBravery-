@@ -21,8 +21,8 @@
                 method: 'GET',
                 url: url
             }).then(function successCallback(response) {
-`
-                }
+
+                
                
                 
            

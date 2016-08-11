@@ -16,21 +16,33 @@
 
         $ctrl.user = {
             champs: {
-                Akali: {
-                    owned: true
-                }
+                
             }
         }
 
 
 
         $ctrl.toggleChamp = function (champ) {
-            if($ctrl.user.champs[champ.name]){
-               delete $ctrl.user.champs[champ.name] 
+            if($ctrl.user.champs[champ.name] && $ctrl.user.champs[champ.name].owned){
+                $ctrl.user.champs[champ.name].owned = false; 
             }else{
                 $ctrl.user.champs[champ.name] = {owned: true};
             }
         }
+
+        var on = false
+        $ctrl.toggleAllChamps = function(){
+            on = !on
+            for(var ch in $ctrl.champArray){
+                var champ = $ctrl.champArray[ch]
+                $ctrl.user.champs[champ.name] = {
+                    owned : on
+                  
+                }
+            }
+        }
+
+        
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
             Object.keys(champs).sort().forEach(function (x, i) {
