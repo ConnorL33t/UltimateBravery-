@@ -15,6 +15,7 @@
         var $ctrl = this;
 
         $ctrl.user = {
+            summoner: $state.params.summoner,
             champs: {
                 
             }

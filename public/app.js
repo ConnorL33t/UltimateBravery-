@@ -16,7 +16,7 @@
                 component: 'uBComponent'
             })
             .state('landingpage', {
-                url: '/summonerpage',
+                url: '/summonerpage/:summoner',
                 component: 'lPComponent'
             })
             .state('match', {
