@@ -18,7 +18,11 @@ angular.module('ultimateBravery')
         
     }
     LeagueService.getLeagueList(function(champs){
-        $ctrl.champs = champs
+        Object.keys(champs).sort().forEach(function (x, i){
+             console.log(x, champs[x])           
+        })
+
+        $ctrl.champs = champions
        
     
     })
