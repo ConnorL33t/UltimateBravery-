@@ -25,8 +25,7 @@
             // $ctrl.champArray is an array sorted alphabetically by index, console logging will not work outside of 
             // LeagueService.getLeagueList because of async (gotta love async)
             // also figured out that you can only get 99 champs at once so this function is being executed twice. 
-                console.log($ctrl.champArray[0])
-                console.log($ctrl.champArray[131])
+             
        
         })
 
