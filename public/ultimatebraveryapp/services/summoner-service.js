@@ -4,7 +4,7 @@
 
     LeagueService.$inject = ['$http'];
 
-    function LeagueService($http){
+    function SummonerService($http){
         var ls = this;
         var MasterLeagueList = [];
 
