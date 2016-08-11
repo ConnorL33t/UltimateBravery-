@@ -4,7 +4,7 @@
 
     LeagueService.$inject = ['$http'];
 
-    function LeagueService($http){
+    function SummonerService($http){
         var ls = this;
         var MasterLeagueList = [];
 
@@ -21,8 +21,8 @@
                 method: 'GET',
                 url: url
             }).then(function successCallback(response) {
-`
-                }
+
+                
                
                 
            
