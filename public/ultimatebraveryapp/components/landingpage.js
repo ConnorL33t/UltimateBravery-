@@ -23,6 +23,14 @@
         }
 
 
+        $ctrl.findMatchGame = function(){
+            $state.go('match')
+        }
+
+
+        
+
+
 
         $ctrl.toggleChamp = function (champ) {
             if($ctrl.user.champs[champ.name]){
@@ -31,6 +39,8 @@
                 $ctrl.user.champs[champ.name] = {owned: true};
             }
         }
+
+        
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
             Object.keys(champs).sort().forEach(function (x, i) {
