@@ -21,6 +21,13 @@
     -webkit-transform:scale(0.5);
     transform:scale(0.5);
     margin: -30px;
-
+}
+#champ-clicks{
+    padding: 0;
+    border: none;
+    background: none;
     
+}
+button.on{
+    background-color: grey;
 }

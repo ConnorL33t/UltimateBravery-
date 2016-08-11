@@ -20,7 +20,9 @@
          <div class="champs-col col-xs-12">
              <div class="champs-boxes">
                 <div ng-repeat="champ in $ctrl.champs" id="champ-pics">
-                    <img src="{{champ.img}}">    
+                    <button id="champ-clicks" ng-click="$ctrl.toggle()">
+                    <img src="{{champ.img}}">
+                    </button>    
                 </div>                                
              </div>
         </div>
