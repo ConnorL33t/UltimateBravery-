@@ -13,9 +13,9 @@
         }
        
         ls.getLeagueList = function(cb){
-        var base = '',
-         summoner = '',
-         apikey = ''
+        var base = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/',
+         summoner = 'placeholder?',
+         apikey = 'api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
         var url =  base + summoner + apikey
             $http({
                 method: 'GET',
