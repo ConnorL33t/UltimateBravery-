@@ -1,6 +1,6 @@
 .summoner-box{
     border: 1px solid black;
-    width: 200px;
+    width: 1050px;
     height: 200px;
     margin-left: 5%;
 }
@@ -15,6 +15,7 @@
     -webkit-transform:scale(0.5);
     transform:scale(0.5);
     margin: -30px;
+
 }
 #champ-clicks{
     padding: 0;
@@ -25,3 +26,17 @@
 button.on{
     background-color: grey;
 }
+
+.button-col{
+    text-align: center;
+}
+
+.summoner-col{
+    text-align: center;
+}
+
+.champs-col{
+    text-align: center
+}
+
+
