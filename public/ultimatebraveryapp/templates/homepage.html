@@ -16,7 +16,7 @@
 
                     <form class="summoner-form" ng-submit="$ctrl.showSummonerProfile($ctrl.summonername)">
                         <input type="text" class="form-control" placeholder="Summoner Name" id="summoner-input" ng-model="$ctrl.summonername" required> <br><br>
-                        <button type="submit" class="find-button">Join the Battle</button>
+                        <button type="submit" class="find-button" ng-click="$ctrl.getSummonerProfile()">Join the Battle</button>
 
                     </form>
 
