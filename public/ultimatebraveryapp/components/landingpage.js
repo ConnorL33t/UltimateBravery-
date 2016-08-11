@@ -38,7 +38,7 @@
             }
         }
 
-<<<<<<< HEAD
+
         var on = false
         $ctrl.toggleAllChamps = function(){
             on = !on
@@ -51,8 +51,7 @@
             }
         }
 
-=======
->>>>>>> b4a5ccf55af9bf57d7fb012c0a394eaf2808f802
+
         
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
