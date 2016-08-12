@@ -19,7 +19,7 @@ app.get('/summoner/:summonerName', function (req, res) {
     url = base + req.params.summonerName + apikey;
 
     request(url, function(err, response, body){
-        res.send(response)
+        res.send(body)
     })
 
 })
