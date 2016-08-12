@@ -6,11 +6,9 @@ var bodyParser = require('body-parser');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var path = require('path');
-<<<<<<< HEAD
-server.listen(8080);
-=======
+
 server.listen(process.env.PORT || 8080);
->>>>>>> ab72110566b8d5dbfb15a82ae127ef65173d1cca
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
