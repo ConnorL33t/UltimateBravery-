@@ -26,6 +26,8 @@
 
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
+                var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
+                $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
               for (var key in summoner) {
                   if (summoner.hasOwnProperty(key)) {
                       var profileIcon = summoner[key].profileIconId
@@ -33,15 +35,11 @@
                       
                   }
               }
-                var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
-                $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
                
             })
 
           
         }
-1
-
         $ctrl.findMatchGame = function () {
             $state.go('match')
         }

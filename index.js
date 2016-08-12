@@ -26,7 +26,6 @@ app.get('/summoner/:summonerName', function (req, res) {
 
 })
 
-
 var usernames = {};
 
 var rooms = ['Lobby'];
