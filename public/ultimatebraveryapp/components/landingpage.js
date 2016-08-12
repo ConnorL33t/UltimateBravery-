@@ -16,7 +16,6 @@
 
         $ctrl.user = {
             summoner: $state.params.summoner,
-            profile: $state.params.summoner.profileIconId,
             champs: {
 
             }

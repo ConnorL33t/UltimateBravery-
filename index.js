@@ -1,20 +1,35 @@
 var express = require('express');
 var http = require('http');
 var app = require('express')();
+var request = require('request');
+var bodyParser = require('body-parser');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var path = require('path');
-server.listen(80);
+server.listen(8080);
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(__dirname + '/public'));
 
+app.get('/summoner/:summonerName', function (req, res) {
+
+    var base = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/',
+        apikey = '?api_key=RGAPI-1FD38CB3-6687-4D45-8D92-925AA6454D16',
+    url = base + req.params.summonerName + apikey;
+
+    request(url, function(err, response, body){
+        res.send(response)
+    })
+
+})
 
 var usernames = {};
 
 var rooms = ['Lobby'];
 
-io.sockets.on('connection', function(socket) {
-    socket.on('adduser', function(username) {
+io.sockets.on('connection', function (socket) {
+    socket.on('adduser', function (username) {
         socket.username = username;
         socket.room = 'Lobby';
         usernames[username] = username;
@@ -24,16 +39,16 @@ io.sockets.on('connection', function(socket) {
         socket.emit('updaterooms', rooms, 'Lobby');
     });
 
-    socket.on('create', function(room) {
+    socket.on('create', function (room) {
         rooms.push(room);
         socket.emit('updaterooms', rooms, socket.room);
     });
 
-    socket.on('sendchat', function(data) {
+    socket.on('sendchat', function (data) {
         io.sockets["in"](socket.room).emit('updatechat', socket.username, data);
     });
 
-    socket.on('switchRoom', function(newroom) {
+    socket.on('switchRoom', function (newroom) {
         var oldroom;
         oldroom = socket.room;
         socket.leave(socket.room);
@@ -44,10 +59,10 @@ io.sockets.on('connection', function(socket) {
         socket.emit('updaterooms', rooms, newroom);
     });
 
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function () {
         delete usernames[socket.username];
         io.sockets.emit('updateusers', usernames);
         socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
         socket.leave(socket.room);
     });
- });
+});
