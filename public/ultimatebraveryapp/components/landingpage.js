@@ -26,7 +26,7 @@
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
-                    $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
+                $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
             })
 
         }
@@ -34,6 +34,10 @@
 
         $ctrl.findMatchGame = function () {
             $state.go('match')
+        }
+
+        $ctrl.rules = function () {
+            $state.go('rules')
         }
 
         $ctrl.toggleChamp = function (champ) {
@@ -63,8 +67,6 @@
 
         }
 
-
-
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
             Object.keys(champs).sort().forEach(function (x, i) {
@@ -74,12 +76,7 @@
             // LeagueService.getLeagueList because of async (gotta love async)
             // also figured out that you can only get 99 champs at once so this function is being executed twice. 
 
-
         })
-
-
-
-
 
     }
 
