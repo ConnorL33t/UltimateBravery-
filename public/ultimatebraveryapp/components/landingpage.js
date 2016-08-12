@@ -26,6 +26,7 @@
 
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
+                $ctrl.user.summoner.profileIcon = summoner.profileiconId
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
                
