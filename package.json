@@ -1,5 +1,5 @@
 {
-  "name": "UltimateBravery-",
+  "name": "ultimatebravery",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,6 +20,6 @@
   "dependencies": {
     "angular-ui-router": "^0.3.1",
     "express": "^4.14.0",
-    "socket-io": "0.0.0"
+    "socket.io": "1.4.8"
   }
 }
