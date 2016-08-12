@@ -23,6 +23,10 @@
                 url: '/gamematch',
                 component: 'gMComponent'
             })
+            .state('rules',{
+                url: '/rules',
+                component: 'rulesComponent'
+            })
 
 
 

@@ -25,6 +25,10 @@
         $ctrl.findMatchGame = function(){
             $state.go('match')
         }
+
+        $ctrl.rules = function(){
+            $state.go('rules')
+        }
         
         $ctrl.toggleChamp = function (champ) {
             if($ctrl.user.champs[champ.name] && $ctrl.user.champs[champ.name].owned){
@@ -52,8 +56,6 @@
             }
             
         }
-
-
         
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {

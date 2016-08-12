@@ -3,6 +3,7 @@
     width: 1050px;
     height: 200px;
     margin-left: 5%;
+    background-color: white
 }
 
 
@@ -56,6 +57,11 @@
 
 }
 
+#champ-row{
+    margin-top: 20%;
+}
 
-
+.select-champs-btn{
+    margin-top: 4px;
+}
 
