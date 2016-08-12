@@ -16,6 +16,7 @@
 
         $ctrl.user = {
             summoner: $state.params.summoner,
+            profile: $state.params.summoner.profileIconId,
             champs: {
 
             }
@@ -34,8 +35,10 @@
               }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
+               
             })
 
+          
         }
 
 

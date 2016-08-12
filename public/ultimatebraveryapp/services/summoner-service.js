@@ -25,10 +25,11 @@
 
              $http.get(url).then(function(response) {
                 var summonerObject = response.data;
+                console.log(summonerObject)
                 return cb(summonerObject)
                 // return masterLeagueList()
             }, function(response) {
-                debugger
+              
             });
 
         
