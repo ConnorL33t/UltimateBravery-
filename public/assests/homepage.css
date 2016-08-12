@@ -1,13 +1,16 @@
 
 .main-background{
-  position: absolute;
+  /*position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;   
+  right: 0;   */
   background-color: rgba(15, 39, 57, 1);
-  height: 100%;
-  width: auto
+  /*min-height: 100%;
+   margin: 0px;
+   min-height: 100%;
+   width: 100%;*/
+
   
 }
 
@@ -65,4 +68,17 @@ background: #E74C3C;
 .find-button:hover {
   background: #F55140;
   text-decoration: none;
+}
+
+html{
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+body{
+   margin: 0px;
+   min-height: 100%;
+   width: 100%;
+
 }
