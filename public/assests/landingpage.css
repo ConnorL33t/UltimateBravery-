@@ -1,4 +1,8 @@
 .summoner-box{
+    border: 1px solid black;
+    height: 200px;
+    margin: none;
+    background-color: white;
    
     width: 600px;
     height: 200px;
@@ -6,6 +10,8 @@
     border: 1px solid rgba(231,76, 60, 1);
    
 }
+
+
 
 .choose-champ{
   color: rgba(231,76, 60, 1);
