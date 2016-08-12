@@ -8,12 +8,12 @@
 
 
 
-        GMController.$inject = ['$state', 'LeagueService']
+        GMController.$inject = ['$state', 'LeagueService', 'SummonerService']
 
 
 
 
-        function GMController($state, LeagueService){
+        function GMController($state, LeagueService, SummonerService){
             let gm = this;
 
 

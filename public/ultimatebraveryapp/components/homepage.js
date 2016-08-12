@@ -12,10 +12,10 @@ angular.module('ultimateBravery')
 
 
 
-    UBController.$inject = ['$state','LeagueService']
+    UBController.$inject = ['$state','LeagueService', 'SummonerService']
 
 
-    function UBController ($state, LeagueService){
+    function UBController ($state, LeagueService, SummonerService){
         let ubc = this
 
 
@@ -23,6 +23,13 @@ angular.module('ultimateBravery')
         ubc.showSummonerProfile = function(summoner){
             
             $state.go('landingpage', {summoner: summoner})
+
+            SummonerService.getSummonerProfile(function(summonerObject){
+                
+
+            })
+
+
         }
 
 

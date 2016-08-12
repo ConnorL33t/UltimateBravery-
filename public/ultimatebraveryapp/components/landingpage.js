@@ -8,10 +8,10 @@
             controller: LPController
 
         })
-    LPController.$inject = ['$state', 'LeagueService'];
+    LPController.$inject = ['$state', 'LeagueService', 'SummonerService'];
 
 
-    function LPController($state, LeagueService) {
+    function LPController($state, LeagueService, SummonerService) {
         var $ctrl = this;
 
         $ctrl.user = {
