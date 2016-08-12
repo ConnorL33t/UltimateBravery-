@@ -40,7 +40,7 @@
 
           
         }
-
+1
 
         $ctrl.findMatchGame = function () {
             $state.go('match')
