@@ -22,7 +22,11 @@ angular.module('ultimateBravery')
 
         ubc.showSummonerProfile = function(summoner){
             
-            $state.go('landingpage', {summoner: summoner})
+            // $state.go('landingpage', {summoner: summoner})
+                
+                $state.go('landingpage', {summoner: summoner})
+          
+           
         }
 
 

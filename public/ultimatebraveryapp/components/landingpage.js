@@ -16,6 +16,7 @@
 
         $ctrl.user = {
             summoner: $state.params.summoner,
+            profile: $state.params.summoner.profileIconId,
             champs: {
 
             }
@@ -25,10 +26,19 @@
 
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
+              for (var key in summoner) {
+                  if (summoner.hasOwnProperty(key)) {
+                      var profileIcon = summoner[key].profileIconId
+                      console.log(profileIcon)
+                      
+                  }
+              }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
+               
             })
 
+          
         }
 
 
