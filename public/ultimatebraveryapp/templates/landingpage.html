@@ -3,8 +3,10 @@
 <!--SUMMONER PROFILE-->
 
     <div class="container-fluid">
+        <div class ="row">
+            <div class="summoner-col col-xs-12">
         <div class="summoner-row row">
-            <div class="summoner-col col-xs-4 col-xs-offset-4">
+            <div class="summoner-col">
                 <div class="summoner-box">
                     <h1 class="summoner-name">{{$ctrl.user.summoner}}</h1>
                 </div>
@@ -13,16 +15,18 @@
 
 <!--CONTAINER FOR FIND MATCH BUTTON-->
 
-    
-      
+
+
+<div>      
              <div class="button-col col-xs-5">
                 <button type="submit" class="lbtn" ng-click="$ctrl.findMatchGame()">Queue Up</button>
             </div>
             <div class="button-col col-xs-offset-2 col-xs-5">
                 <button type="submit" class="lbtn" ng-click="$ctrl.rules()">RULES</button>
             </div>    
-      
+     </div> 
     
+
                
       
 
