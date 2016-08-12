@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ConnorL33t/UltimateBravery-.git"
+  },
+  "engines": {
+    "npm": "3.x",
+    "node": "6.x"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +23,9 @@
   "homepage": "https://github.com/ConnorL33t/UltimateBravery-#readme",
   "dependencies": {
     "angular-ui-router": "^0.3.1",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "request": "^2.74.0",
     "socket.io": "1.4.8"
   }
 }
