@@ -23,13 +23,6 @@ angular.module('ultimateBravery')
         ubc.showSummonerProfile = function(summoner){
             
             $state.go('landingpage', {summoner: summoner})
-
-            SummonerService.getSummonerProfile(function(summonerObject){
-                
-
-            })
-
-
         }
 
 
