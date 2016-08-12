@@ -1,8 +1,7 @@
 .summoner-box{
     border: 1px solid black;
-    width: 1050px;
     height: 200px;
-    margin-left: 5%;
+    margin: none;
     background-color: white
 }
 
