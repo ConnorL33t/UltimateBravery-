@@ -1,18 +1,17 @@
 .summoner-box{
-<<<<<<< HEAD
     border: 1px solid black;
     height: 200px;
     margin: none;
-    background-color: white
-=======
+    background-color: white;
    
     width: 600px;
     height: 200px;
     margin-top: 10px;
     border: 1px solid rgba(231,76, 60, 1);
    
->>>>>>> 82ce0ba6dc93bf492ab3e36f3c49b9988f86c897
 }
+
+
 
 .choose-champ{
   color: rgba(231,76, 60, 1);
