@@ -45,7 +45,7 @@ body{
 
 .button-col{
     text-align: center;
-    margin-top: 150px;
+    margin-top: 20px;
     
 }
 
@@ -94,5 +94,9 @@ body{
   text-decoration: none;
   border: none;
   margin-bottom: 15px;
+}
+
+.summoner-icon {
+    border-radius: 50%;
 }
 
