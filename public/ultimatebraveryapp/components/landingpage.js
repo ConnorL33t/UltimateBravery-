@@ -46,9 +46,6 @@
         }
 
 
-        $ctrl.findMatchGame = function () {
-            $state.go('match')
-        }
 
         $ctrl.rules = function () {
             $state.go('rules')
@@ -61,6 +58,13 @@
                 $ctrl.user.champs[champ.name] = { owned: true };
             }
         }
+
+        $ctrl.findMatchGame = function (champ) {
+            
+            $state.go('match')
+            console.log($ctrl.user.champs)
+        }
+
 
         $ctrl.champBtn = "Select All Champions"
         var on = false
