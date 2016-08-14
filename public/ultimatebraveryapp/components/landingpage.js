@@ -25,14 +25,27 @@
 
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
+            
+                if(summoner.status){
+                    $state.go('login')
+                }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
                 $ctrl.user.profileIcon = `/image/lolimages/img/profileicon/${summoner[cleanSummonerName].profileIconId}.png`
+
                 
             })
 
 
         }
+
+
+        if(SummonerService.response){
+
+            debugger
+        }
+
+
         $ctrl.findMatchGame = function () {
             $state.go('match')
         }
