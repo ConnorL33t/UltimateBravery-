@@ -42,8 +42,10 @@
 
 
 
-
-
+        $ctrl.quickmatch = function () {
+            $state.go('quickmatch')
+        }
+        
 
         $ctrl.rules = function () {
             $state.go('rules')
