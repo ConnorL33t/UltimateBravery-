@@ -1,11 +1,11 @@
-var express = require('express');
-var http = require('http');
-var app = require('express')();
-var request = require('request');
-var bodyParser = require('body-parser');
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var path = require('path');
+const express  = require('express'),
+    request = require('request'), 
+	bodyParser = require('body-parser'), 
+    app      = express(),
+    server   = require('http').createServer(app),
+    io       = require('socket.io').listen(server),
+    path = require('path')
+
 
 server.listen(process.env.PORT || 8080);
 
@@ -26,45 +26,89 @@ app.get('/summoner/:summonerName', function (req, res) {
 
 })
 
-var usernames = {};
+// begin hell 
 
-var rooms = ['Lobby'];
-
-io.sockets.on('connection', function (socket) {
-    socket.on('adduser', function (username) {
-        socket.username = username;
-        socket.room = 'Lobby';
-        usernames[username] = username;
-        socket.join('Lobby');
-        socket.emit('updatechat', 'SERVER', 'you have connected to Lobby');
-        socket.broadcast.to('Lobby').emit('updatechat', 'SERVER', username + ' has connected to this room');
-        socket.emit('updaterooms', rooms, 'Lobby');
-    });
-
-    socket.on('create', function (room) {
-        rooms.push(room);
-        socket.emit('updaterooms', rooms, socket.room);
-    });
-
-    socket.on('sendchat', function (data) {
-        io.sockets["in"](socket.room).emit('updatechat', socket.username, data);
-    });
-
-    socket.on('switchRoom', function (newroom) {
-        var oldroom;
-        oldroom = socket.room;
-        socket.leave(socket.room);
-        socket.join(newroom);
-        socket.emit('updatechat', 'SERVER', 'you have connected to ' + newroom);
-        socket.room = newroom;
-        socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username + ' has joined this room');
-        socket.emit('updaterooms', rooms, newroom);
-    });
-
-    socket.on('disconnect', function () {
-        delete usernames[socket.username];
-        io.sockets.emit('updateusers', usernames);
-        socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
-        socket.leave(socket.room);
-    });
+io.on('connect', function(data){
+  connect(socket, data);
 });
+io.on('chatmessage', function(data){
+  chatmessage(socket, data);
+}); 
+io.on('queueUp', function(data){
+  queueUp(socket, data);
+});
+io.on('leaveQueue', function(data){
+  leaveQueue(socket, data);
+}); 
+io.on('disconnect', function(){
+  disconnect(socket);
+ });
+function connect(socket, data){
+ data.clientId = // uuid fix later
+ chatClients[socket.id] = data;
+ socket.emit('ready', { clientId: data.clientId });
+ queueUp(socket, { room: 'lobby' });
+ socket.emit('roomslist', { rooms: getRooms() });
+}
+function disconnect(socket){
+    let rooms = io.sockets.adapter.roomClients[socket.id];
+    for(let room in rooms){
+  if(room && rooms[room]){
+   leaveQueue(socket, { room: room.replace('/','') });
+  }
+ }
+ delete chatClients[socket.id];
+
+
+}
+function chatmessage(socket, data){
+ socket.broadcast.to(data.room).emit('chatmessage', { client: 
+           chatClients[socket.id], message: data.message, room: data.room });
+}
+function queueUp(socket, data){
+ // get a list of all active rooms
+	var rooms = getRooms();
+
+	if(rooms.indexOf('/' + data.room) < 0){
+		socket.broadcast.emit('addroom', { room: data.room });
+	}
+
+	socket.join(data.room);
+
+	updatePresence(data.room, socket, 'online');
+
+	io.emit('roomclients', { room: data.room, clients: getClientsInRoom(socket.id, data.room) })
+}
+function leaveQueue(socket, data){
+	updatePresence(data.room, socket, 'offline');
+	socket.leave(data.room);
+	if(!countClientsInRoom(data.room)){
+		io.sockets.emit('removeroom', { room: data.room });
+	}
+}
+function getRooms(){
+	return Object.keys(io.sockets.adapter.rooms);
+}
+function getClientsInRoom(socketId, room){
+	var socketIds = io.sockets.adapter.rooms['/' + room];
+	var clients = [];
+	
+	if(socketIds && socketIds.length > 0){
+		socketsCount = socketIds.lenght;
+		for(var i = 0, len = socketIds.length; i < len; i++){
+
+			if(socketIds[i] != socketId){
+				clients.push(chatClients[socketIds[i]]);
+			}
+		}
+	}
+	
+	return clients;
+}
+function countClientsInRoom(room){
+
+	if(io.sockets.adapter.rooms['/' + room]){
+		return io.sockets.adapter.rooms['/' + room].length;
+	}
+	return 0;
+}
