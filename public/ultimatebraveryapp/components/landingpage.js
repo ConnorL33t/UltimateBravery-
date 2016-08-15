@@ -61,18 +61,17 @@
 
 
         $ctrl.findMatchGame = function (champ, index) {
-<<<<<<< HEAD
+
 
             $state.go('match')
-=======
->>>>>>> 74203c665462e096e5857b711f247efcc925804f
+
         
                         
-            // $state.go('match')
+    
 
 
             let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
-<<<<<<< HEAD
+
 
 
             var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
@@ -85,7 +84,7 @@
 
             console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
-=======
+
 
             console.log(randomChampNumber)
 
@@ -103,7 +102,7 @@
             
             console.log(randChamp)
         
->>>>>>> 74203c665462e096e5857b711f247efcc925804f
+
 
 
 
