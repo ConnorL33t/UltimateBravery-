@@ -94,13 +94,13 @@
                 }
             })
             
-            var randChamI = $ctrl.champsArray.find(function(champ, i){
-                if(champ == randChamp){
-                    return champ;
-                }
-            })
+            // var randChamI = $ctrl.champsArray.find(function(champ, i){
+            //     if(champ == randChamp){
+            //         return champ;
+            //     }
+            // })
             
-            console.log(randChamp)
+            // console.log(randChamp)
         
 
 
