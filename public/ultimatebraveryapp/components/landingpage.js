@@ -62,33 +62,22 @@
 
         $ctrl.findMatchGame = function (champ, index) {
 
-    var randomProperty = function (obj) {
-                var keys = Object.keys(obj)
-                return obj[keys[keys.length * Math.random() << 0]];
-            };
-
-           console.log(randomProperty($ctrl.user))
-            // $state.go('match')
+            $state.go('match')
         
 
-            // let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+            let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
 
-            // console.log(randomChampNumber)
 
-            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
-            //     if(i == randomChampNumber){
-            //         return champ;
-            //     }
-            // })
+            var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
+                if(i == randomChampNumber){
+                    return champ;
+                }
+            })
+
+            var randChamp = $ctrl.champs[champName];
+
+            console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
-            // var randChamI = $ctrl.champsArray.find(function(champ, i){
-            //     if(champ == randChamp){
-            //         return champ;
-            //     }
-            // })
-        
-            // console.log(randChamp)
-        
 
 
 
@@ -127,6 +116,7 @@
 
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
+            $ctrl.champs = champs;
             Object.keys(champs).sort().forEach(function (x, i) {
                 $ctrl.champArray.push(champs[x])
             })
