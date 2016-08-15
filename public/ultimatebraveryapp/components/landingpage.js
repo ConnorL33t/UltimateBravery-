@@ -62,13 +62,28 @@
 
         $ctrl.findMatchGame = function (champ, index) {
         
-            debugger            
-            $state.go('match')
+                        
+            // $state.go('match')
 
 
             let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
-        
+
             console.log(randomChampNumber)
+
+            var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+                if(i == randomChampNumber){
+                    return champ;
+                }
+            })
+            
+            var randChamI = $ctrl.champsArray.find(function(champ, i){
+                if(champ == randChamp){
+                    return champ;
+                }
+            })
+            
+            console.log(randChamp)
+        
 
 
 

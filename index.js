@@ -69,7 +69,7 @@ function queueUp(socket, data){
  // get a list of all active rooms
 	var rooms = getRooms();
 
-	if(rooms.indexOf('/' + data.room) < 0){
+	if(rooms.indexOf('/' + data.room) <= 0){
 		socket.broadcast.emit('addroom', { room: data.room });
 	}
 
