@@ -61,33 +61,28 @@
 
 
         $ctrl.findMatchGame = function (champ, index) {
-
-    var randomProperty = function (obj) {
-                var keys = Object.keys(obj)
-                return obj[keys[keys.length * Math.random() << 0]];
-            };
-
-           console.log(randomProperty($ctrl.user))
+        
+                        
             // $state.go('match')
-        
 
-            // let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
 
-            // console.log(randomChampNumber)
+            let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
 
-            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
-            //     if(i == randomChampNumber){
-            //         return champ;
-            //     }
-            // })
+            console.log(randomChampNumber)
+
+            var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+                if(i == randomChampNumber){
+                    return champ;
+                }
+            })
             
-            // var randChamI = $ctrl.champsArray.find(function(champ, i){
-            //     if(champ == randChamp){
-            //         return champ;
-            //     }
-            // })
-        
-            // console.log(randChamp)
+            var randChamI = $ctrl.champsArray.find(function(champ, i){
+                if(champ == randChamp){
+                    return champ;
+                }
+            })
+            
+            console.log(randChamp)
         
 
 
