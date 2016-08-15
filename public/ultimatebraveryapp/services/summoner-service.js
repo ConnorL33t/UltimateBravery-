@@ -21,18 +21,22 @@
              $http.get('/summoner/'+summoner).then(function(response) {
                 var summonerObject = response.data;
                 console.log(summonerObject)
+                ss.getStats(summonerObject)    
                 return cb(summonerObject)
                 // return masterLeagueList()
             }, function(response) {
               
             });
-
             // for(var summoner in summonerObject){
             //     debugger
             //     summoner[summonerObject].profileicon = `/image/lolimages/img/profileicon/${summoner}.png`
             // }
 
-        
+        ss.getStats = function(summonerObject){
+          console.log(summonerObject.)
+
+          
+        }
 
         }
     }
