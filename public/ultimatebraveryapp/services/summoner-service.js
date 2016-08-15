@@ -5,10 +5,51 @@
     SummonerService.$inject = ['$http'];
 
     function SummonerService($http) {
+    
 
 
 
         var ss = this;
+
+        ss.getRandChampion = function(champ){ 
+            //    TODO:: Make this get champ object instead of just champName as a string.
+            console.log(champ)
+            console.log(Object.keys(champ.champs))
+        
+             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
+
+             console.log(randomChampNumber)
+
+
+
+            var champName = Object.keys(champ.champs).find(function(champ, i){
+            
+                if(i == randomChampNumber){
+                    debugger
+                    return champ;
+                }
+            })
+
+            console.log(champName)
+
+            var randChamp = user.champs[champName];
+
+            // console.log(randomChampNumber)
+            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            
+
+
+
+            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+            //     if(i == randomChampNumber){
+            //         return champ;
+            //     }
+            // })
+            
+
+            
+
+        }
         // var SummonerInfo = [];
 
         // function saveM(champs){

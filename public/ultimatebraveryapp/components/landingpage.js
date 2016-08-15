@@ -61,38 +61,42 @@
 
 
         $ctrl.findMatchGame = function (champ, index) {
+            debugger
 
 
             $state.go('match')
+
+
+            SummonerService.getRandChampion($ctrl.user);
 
         
                         
     
 
 
-            let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+            // let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
 
 
 
-            var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
-                if(i == randomChampNumber){
-                    return champ;
-                }
-            })
+            // var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
+            //     if(i == randomChampNumber){
+            //         return champ;
+            //     }
+            // })
 
-            var randChamp = $ctrl.champs[champName];
+            // var randChamp = $ctrl.champs[champName];
 
-            console.log(randomChampNumber)
-            console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            // console.log(randomChampNumber)
+            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
 
 
 
-            var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
-                if(i == randomChampNumber){
-                    return champ;
-                }
-            })
+            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+            //     if(i == randomChampNumber){
+            //         return champ;
+            //     }
+            // })
             
         
         
