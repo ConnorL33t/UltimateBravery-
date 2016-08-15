@@ -27,6 +27,11 @@
               
             });
 
+            // for(var summoner in summonerObject){
+            //     debugger
+            //     summoner[summonerObject].profileicon = `/image/lolimages/img/profileicon/${summoner}.png`
+            // }
+
         
 
         }

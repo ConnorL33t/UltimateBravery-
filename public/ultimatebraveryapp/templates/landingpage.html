@@ -1,53 +1,80 @@
 <div class="main-background">
 
-<!--SUMMONER PROFILE-->
+
+    
+
+
+
+
+
+    <!--SUMMONER PROFILE-->
 
     <div class="container-fluid">
-        <div class ="row">
+        <div class="row">
             <div class="summoner-col col-xs-12">
-        <div class="summoner-row row">
-            <div class="summoner-col col-xs-4 col-xs-offset-4">
-                <div class="summoner-box">
-                    <h1 class="summoner-name">{{$ctrl.user.summoner}}</h1>
+                <div class="summoner-row row">
+                    <div class="summoner-col">
+                        <div class="summoner-box">
+                            <h1 class="summoner-name">{{$ctrl.user.summoner}}</h1>
+                        </div>
+                    </div>
                 </div>
+
+
+
+                <!--CONTAINER FOR PROFILE ICON-->
+
+
+                <div class="row">
+                    <div class="col-xs-12">
+
+
+                        <div>
+                            <img class="summoner-icon" ng-src="{{$ctrl.user.profileIcon}}" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--CONTAINER FOR FIND MATCH BUTTON-->
+
+
+
+                <div>
+                    <div class="button-col col-xs-4">
+                        <button type="submit" class="lbtn" ng-click="$ctrl.findMatchGame()">Queue</button>
+                    </div>
+                    <div class="button-col col-xs-4">
+                        <button type="submit" class="lbtn" ng-click="$ctrl.rules()">Rules</button>
+                    </div>
+                     <div class="button-col col-xs-4">
+                        <button type="submit" class="lbtn" ng-click="$ctrl.quickmatch()">SoloPlay</button>
+                    </div>
+                </div>
+
+
+
+
+
+                <!--CONTAINER FOR CHAMPION ICONS AND BUTTONS-->
+
+
+                <div class="row" id="champ-row">
+                    <div class="champs-col col-xs-offset-1 col-xs-10 col-xs-offset-1">
+                        <span class="choose-champ"><h1>Select Champions</h1></span>
+                        <hr>
+                        <button class="select-champs-btn" ng-click="$ctrl.toggleAllChamps()">{{$ctrl.champBtn}}</button>
+                        <div class="champs-boxes">
+                            <div ng-repeat="champ in $ctrl.champArray" class="champ-pics" ng-class="{'inactive': !$ctrl.user.champs[champ.name].owned}"
+                                ng-click="$ctrl.toggleChamp(champ)">
+                                <img src="{{champ.img}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-
-<!--CONTAINER FOR FIND MATCH BUTTON-->
-
-
-
-<div>      
-             <div class="button-col col-xs-5">
-                <button type="submit" class="lbtn" ng-click="$ctrl.findMatchGame()">Queue Up</button>
-            </div>
-            <div class="button-col col-xs-offset-2 col-xs-5">
-                <button type="submit" class="lbtn" ng-click="$ctrl.rules()">RULES</button>
-            </div>    
-     </div> 
-    
-
-               
-      
-
-<!--CONTAINER FOR CHAMPION ICONS AND BUTTONS-->
-
-    
-        <div class="row" id="champ-row">
-             <div class="champs-col col-xs-offset-1 col-xs-10 col-xs-offset-1">
-                 <span class="choose-champ"><h1>Select Champions</h1></span>
-                 <hr>
-                    <button class="select-champs-btn" ng-click="$ctrl.toggleAllChamps()">{{$ctrl.champBtn}}</button>
-                 <div class="champs-boxes">
-                    <div ng-repeat="champ in $ctrl.champArray" class="champ-pics" ng-class="{'inactive': !$ctrl.user.champs[champ.name].owned}" ng-click="$ctrl.toggleChamp(champ)">
-                        <img src="{{champ.img}}">
-                    </div>                                    
-                </div>
-             </div>
-        </div>
-    
-
     </div>
 </div>
-    
-

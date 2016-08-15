@@ -27,6 +27,10 @@
                 url: '/rules',
                 component: 'rulesComponent'
             })
+             .state('quickmatch',{
+                url: '/soloplay',
+                component: 'qMComponent'
+            })
 
 
 

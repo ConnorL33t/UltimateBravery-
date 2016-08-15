@@ -1,14 +1,5 @@
-.summoner-box{
-    border: 1px solid black;
-    height: 200px;
-    margin: none;
-    background-color: white;
-   
-    width: 600px;
-    height: 200px;
-    margin-top: 10px;
-    border: 1px solid rgba(231,76, 60, 1);
-   
+body{
+    background-color: rgba(15, 39, 57, 1)
 }
 
 
@@ -54,7 +45,7 @@
 
 .button-col{
     text-align: center;
-    margin-top: 150px;
+    margin-top: 20px;
     
 }
 
@@ -103,5 +94,9 @@
   text-decoration: none;
   border: none;
   margin-bottom: 15px;
+}
+
+.summoner-icon {
+    border-radius: 50%;
 }
 

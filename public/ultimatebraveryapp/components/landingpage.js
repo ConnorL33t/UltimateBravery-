@@ -16,7 +16,6 @@
 
         $ctrl.user = {
             summoner: $state.params.summoner,
-            profile: $state.params.summoner.profileIconId,
             champs: {
 
             }
@@ -26,23 +25,27 @@
 
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
+            
+                if(summoner.status){
+                    $state.go('login')
+                }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
-              for (var key in summoner) {
-                  if (summoner.hasOwnProperty(key)) {
-                      var profileIcon = summoner[key].profileIconId
-                      console.log(profileIcon)
-                      
-                  }
-              }
-               
+                $ctrl.user.profileIcon = `/image/lolimages/img/profileicon/${summoner[cleanSummonerName].profileIconId}.png`
+
+                
             })
 
-          
+
         }
-        $ctrl.findMatchGame = function () {
-            $state.go('match')
+
+
+
+
+        $ctrl.quickmatch = function () {
+            $state.go('quickmatch')
         }
+        
 
         $ctrl.rules = function () {
             $state.go('rules')
@@ -55,6 +58,25 @@
                 $ctrl.user.champs[champ.name] = { owned: true };
             }
         }
+
+
+        $ctrl.findMatchGame = function (champ, index) {
+        
+            debugger            
+            $state.go('match')
+
+
+            let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+        
+            console.log(randomChampNumber)
+
+
+
+            
+        }
+
+    
+
 
         $ctrl.champBtn = "Select All Champions"
         var on = false
@@ -74,6 +96,14 @@
             }
 
         }
+
+
+
+
+
+
+
+
 
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
