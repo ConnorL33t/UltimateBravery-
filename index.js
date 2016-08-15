@@ -25,6 +25,7 @@ app.get('/summoner/:summonerName', function (req, res) {
     })
 
 })
+app.get
 
 // begin hell 
 
