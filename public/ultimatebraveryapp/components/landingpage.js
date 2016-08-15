@@ -82,11 +82,11 @@
 
             var randChamp = $ctrl.champs[champName];
 
+            console.log(randomChampNumber)
             console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
 
 
-            console.log(randomChampNumber)
 
             var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
                 if(i == randomChampNumber){
@@ -94,13 +94,7 @@
                 }
             })
             
-            // var randChamI = $ctrl.champsArray.find(function(champ, i){
-            //     if(champ == randChamp){
-            //         return champ;
-            //     }
-            // })
-            
-            // console.log(randChamp)
+        
         
 
 
