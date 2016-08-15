@@ -40,10 +40,8 @@
         }
 
 
-        if(SummonerService.response){
 
-            debugger
-        }
+
 
 
 
@@ -59,10 +57,16 @@
             }
         }
 
+
         $ctrl.findMatchGame = function (champ) {
+            debugger
             
             $state.go('match')
-            console.log($ctrl.user.champs)
+
+            console.log(Object.keys($ctrl.user.champs))
+
+
+            
         }
 
 
@@ -84,6 +88,14 @@
             }
 
         }
+
+
+
+
+
+
+
+
 
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
