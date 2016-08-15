@@ -60,16 +60,22 @@
         }
 
 
-        $ctrl.findMatchGame = function (champ) {
-            debugger
-            
+        $ctrl.findMatchGame = function (champ, index) {
+        
+            debugger            
             $state.go('match')
 
-            console.log(Object.keys($ctrl.user.champs))
+
+            let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+        
+            console.log(randomChampNumber)
+
 
 
             
         }
+
+    
 
 
         $ctrl.champBtn = "Select All Champions"
