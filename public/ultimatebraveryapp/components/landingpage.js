@@ -129,6 +129,10 @@
 
             })
 
+            LeagueService.getKeystone(function (keystone){
+                $ctrl.keystone = keystone;
+            })
+
 
         }
     }
