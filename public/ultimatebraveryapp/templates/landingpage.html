@@ -65,9 +65,12 @@
                         <hr>
                         <button class="select-champs-btn" ng-click="$ctrl.toggleAllChamps()">{{$ctrl.champBtn}}</button>
                         <div class="champs-boxes">
-                            <div ng-repeat="champ in $ctrl.champArray" class="champ-pics" ng-class="{'inactive': !$ctrl.user.champs[champ.name].owned}"
+                            <div ng-repeat="champ in $ctrl.champArray track by $index" class="champ-pics" ng-class="{'inactive': !$ctrl.user.champs[champ.name].owned}"
                                 ng-click="$ctrl.toggleChamp(champ)">
                                 <img src="{{champ.img}}">
+                                <div ng-repeat="spell in champ.spells">
+                                    <img src="{{spell}}" width="30"/>
+                                </div>
                             </div>
                         </div>
                     </div>
