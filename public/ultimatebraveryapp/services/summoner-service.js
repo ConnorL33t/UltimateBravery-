@@ -26,7 +26,14 @@
 
             // Finds that champ by matching randomChampNumber to our object of owned champs
 
+
             var champName = Object.keys(champ.champs).find(function (champ, i) {
+
+
+            // Finds that champ by matching randomChampNumber to our object of owned champs
+
+            var champName = Object.keys(champ.champs).find(function (champ, i) {
+
 
                 if (i == randomChampNumber) {
                     debugger
@@ -47,7 +54,7 @@
 
 
 
-        }
+        
         // var SummonerInfo = [];
 
         // function saveM(champs){
@@ -59,6 +66,7 @@
             $http.get('/summoner/' + summoner).then(function (response) {
                 var summonerObject = response.data;
                 return cb(summonerObject)
+
 
 
 
@@ -79,12 +87,13 @@
             })
         }
 
-    }
+    
 
 
 
 
 } ());
+
 
 
 
