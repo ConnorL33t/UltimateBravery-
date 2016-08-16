@@ -29,19 +29,19 @@
                 for(var champ in champs){
 
                     champs[champ].img = `/image/lolimages/img/champion/${champ}.png`
-                    champs[champ].spells = [
-                        `/image/lolimages/img/spell/${champ}Q.png`,
-                        `/image/lolimages/img/spell/${champ}W.png`,
-                        `/image/lolimages/img/spell/${champ}E.png`
-                    ]
-                    if (champ === `Udyr`) {
-                        champs[champ].spells = [
-                            `/image/lolimages/img/spell/${champ}Q.png`,
-                            `/image/lolimages/img/spell/${champ}W.png`,
-                            `/image/lolimages/img/spell/${champ}E.png`,
-                            `/image/lolimages/img/spell/${champ}R.png`
-                        ]
-                    }
+                    // champs[champ].spells = [
+                    //     `/image/lolimages/img/spell/${champ}Q.png`,
+                    //     `/image/lolimages/img/spell/${champ}W.png`,
+                    //     `/image/lolimages/img/spell/${champ}E.png`
+                    // ]
+                    // if (champ === `Udyr`) {
+                    //     champs[champ].spells = [
+                    //         `/image/lolimages/img/spell/${champ}Q.png`,
+                    //         `/image/lolimages/img/spell/${champ}W.png`,
+                    //         `/image/lolimages/img/spell/${champ}E.png`,
+                    //         `/image/lolimages/img/spell/${champ}R.png`
+                    //     ]
+                    // }
                 }
 
                 saveMasterLeagueList(champs)
