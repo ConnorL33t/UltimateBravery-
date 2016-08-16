@@ -12,15 +12,19 @@
         var ss = this;
 
         ss.getRandChampion = function(champ){ 
-            //    TODO:: Make this get champ object instead of just champName as a string.
+
             console.log(champ)
             console.log(Object.keys(champ.champs))
+
+
+            // GETS random champ number from the list of owned champs for that user
         
              let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
 
              console.log(randomChampNumber)
 
 
+             // Finds that champ by matching randomChampNumber to our object of owned champs
 
             var champName = Object.keys(champ.champs).find(function(champ, i){
             
@@ -31,20 +35,14 @@
             })
 
             console.log(champName)
-
-            var randChamp = user.champs[champName];
-
-            // console.log(randomChampNumber)
-            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
 
+            // TODO :: make this next function get the object not a string.
 
+            // var randChamp = [champName];
 
-            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
-            //     if(i == randomChampNumber){
-            //         return champ;
-            //     }
-            // })
+            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            
             
 
             
@@ -90,4 +88,3 @@
 } ());
 
 
-// '{{$ctrl.user.summoner}}'
