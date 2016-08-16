@@ -76,6 +76,7 @@
         ss.getSummonersChamps = function (summoner, cb) {
             var summoner = summoner
             if (!summoner) { return }
+<<<<<<< HEAD
             $http.get('/summoner/' + summoner).then(function (response) {
                 // console.log(response.data)
                 return console.log(response.data[summoner].id), $http.get('/summonerstat/' + response.data[summoner].id).then(function (response) {
@@ -83,10 +84,15 @@
                     var champMastery = response.data
                     return cb(champMastery)
 
+=======
+            $http.get('/summoner/' + summoner).then(function (result) {
+                $http.get('/summonerstat/' + result.data[summoner].id).then(function (response) {
+>>>>>>> 8d9509f17a4d9127fb0262ca1389446b7e42638d
                 })
             })
         }
 
+<<<<<<< HEAD
     
 
 
@@ -97,3 +103,7 @@
 
 
 
+=======
+    }
+} ());
+>>>>>>> 8d9509f17a4d9127fb0262ca1389446b7e42638d
