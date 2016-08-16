@@ -57,17 +57,18 @@
                 
                 for(var item in items){
                      items[item].img = `/image/lolimages/img/item/${item}.png`
+                     
                 }
             
                
                 saveMasterItemList(items)
                 cb(items)
                 console.log(items)                
-
-                // return masterLeagueList()
             }, function errorCallback(response) {
 
             });
+
+                // return masterLeagueList()
             }, function errorCallback(response) {
 
             });
