@@ -22,10 +22,12 @@
         }
 
         $ctrl.$onInit = function () {
-
+            SummonerService.getSummonersChamps($state.params.summoner, function(champMastery){
+                console.log(champMastery)
+            })
 
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
-            
+             console.log(summoner)
                 if(summoner.status){
                     $state.go('login')
                 }
@@ -35,9 +37,7 @@
 
                 
             })
-
-
-        }
+        } 
 
 
 

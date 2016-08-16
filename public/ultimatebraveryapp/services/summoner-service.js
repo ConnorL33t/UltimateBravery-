@@ -12,15 +12,19 @@
         var ss = this;
 
         ss.getRandChampion = function(champ){ 
-            //    TODO:: Make this get champ object instead of just champName as a string.
+
             console.log(champ)
             console.log(Object.keys(champ.champs))
+
+
+            // GETS random champ number from the list of owned champs for that user
         
              let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
 
              console.log(randomChampNumber)
 
 
+             // Finds that champ by matching randomChampNumber to our object of owned champs
 
             var champName = Object.keys(champ.champs).find(function(champ, i){
             
@@ -31,20 +35,14 @@
             })
 
             console.log(champName)
-
-            var randChamp = user.champs[champName];
-
-            // console.log(randomChampNumber)
-            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
 
+            // TODO :: make this next function get the object not a string.
 
+            // var randChamp = [champName];
 
-            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
-            //     if(i == randomChampNumber){
-            //         return champ;
-            //     }
-            // })
+            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            
             
 
             
@@ -58,36 +56,35 @@
         ss.summoner = ''
         ss.getSummonerProfile = function (summoner, cb) {
             if (!summoner) { return }
-            ss.summoner = summoner
             $http.get('/summoner/' + summoner).then(function (response) {
                 var summonerObject = response.data;
-                console.log(summonerObject)
-                ss.getSummChamps(ss.summoner, summonerObject)
                 return cb(summonerObject)
-                // return masterLeagueList()
-            }, function (response) {
+                
+            
+            
+            })
+            };
+        
+        ss.getSummonersChamps = function(summoner, cb){
+            var summoner = summoner
+            if(!summoner){return}
+            $http.get('/summoner/'+ summoner).then(function(response){
+                // console.log(response.data)
+            return console.log(response.data[summoner].id), $http.get('/summonerstat/'+ response.data[summoner].id).then(function(response){
 
-            });
-            // for(var summoner in summonerObject){
-            //     debugger
-            //     summoner[summonerObject].profileicon = `/image/lolimages/img/profileicon/${summoner}.png`
-            // }
+              var champMastery = response.data
+              return cb(champMastery)
 
-            ss.getSummChamps = function (summoner, summonerObject) {
-                var id = summonerObject[summoner].id
-                var baseUrl = 'https://na.api.pvp.net/championmastery/location/NA1/player/'
-                var endUrl = '/champions?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
-                var url = baseUrl + id + endUrl
-                $http.get(url).then(function(response){
-                    var summonerchamps = response.data
-                    console.log(response.data)
-                })
-
-            }
-
+            })
+            })
         }
+<<<<<<< HEAD
+            }
+    
+} ());
+=======
     }
 } ());
 
 
-// '{{$ctrl.user.summoner}}'
+>>>>>>> d325380d55c88303db222be3d006e3adf1e333ac

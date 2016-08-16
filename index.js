@@ -25,8 +25,19 @@ app.get('/summoner/:summonerName', function (req, res) {
     })
 
 })
-app.get
 
+app.get('/summonerstat/:summonerId', function (req, res) {
+
+    var base = 'https://na.api.pvp.net/championmastery/location/NA1/player/'
+        apikey = '/champions?RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
+
+		   url = base + req.params.summonerId + apikey;
+
+    request(url, function(err, response, body){
+        res.send(body)
+    })
+
+})
 // begin hell 
 
 io.on('connect', function(data){
