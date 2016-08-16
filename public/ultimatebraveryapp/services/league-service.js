@@ -28,23 +28,6 @@
                var champs = response.data.data;             
                for(var champ in champs){
 
-<<<<<<< HEAD
-                    champs[champ].img = `/image/lolimages/img/champion/${champ}.png`
-                    // champs[champ].spells = [
-                    //     `/image/lolimages/img/spell/${champ}Q.png`,
-                    //     `/image/lolimages/img/spell/${champ}W.png`,
-                    //     `/image/lolimages/img/spell/${champ}E.png`
-                    // ]
-                    // if (champ === `Udyr`) {
-                    //     champs[champ].spells = [
-                    //         `/image/lolimages/img/spell/${champ}Q.png`,
-                    //         `/image/lolimages/img/spell/${champ}W.png`,
-                    //         `/image/lolimages/img/spell/${champ}E.png`,
-                    //         `/image/lolimages/img/spell/${champ}R.png`
-                    //     ]
-                    // }
-                }
-=======
                    champs[champ].img = `/image/lolimages/img/champion/${champ}.png`
                    champs[champ].spells = [
                        `/image/lolimages/img/spell/${champ}Q.png`,
@@ -60,7 +43,6 @@
                        ]
                    }
                }
->>>>>>> 0b6ddf6b3145eccc390a4e2c741c1863bfe3303a
 
                saveMasterLeagueList(champs)
                cb(champs)
