@@ -47,19 +47,9 @@
                         <div class="champs-boxes">
                             <div ng-repeat="champ in $ctrl.champArray track by $index" class="champ-pics" ng-class="{'inactive': !$ctrl.user.champs[champ.name].owned}" ng-click="$ctrl.toggleChamp(champ)">
                                 <img src="{{champ.img}}">
-                                <div ng-repeat="spell in champ.spells">
-                                    <img src="{{spell}}" width="30" />
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="champs-boxes">
-                <div ng-repeat="item in $ctrl.items track by $index" class="champ-pics">
-                    <img src="{{item.img}}">
                 </div>
             </div>
         </div>

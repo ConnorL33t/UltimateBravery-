@@ -1,18 +1,22 @@
- (function () {
-   angular.module('ultimateBravery')
-       .service('SummonerService', SummonerService)
-   
 
-   SummonerService.$inject = ['$http', 'LeagueService'];
+; (function () {
+    angular.module('ultimateBravery')
+        .service('SummonerService', SummonerService)
+    
 
-   function SummonerService($http, LeagueService) {
-   
+    SummonerService.$inject = ['$http', 'LeagueService'];
+
+    function SummonerService($http, LeagueService) {
+    
+
 
 
 
        var ss = this;
 
-       ss.getRandChampion = function(champ, LeagueService){
+        ss.getRandChampion = function(champ, LeagueService){ 
+
+
 
            console.log(champ)
            console.log(Object.keys(champ.champs))
@@ -35,19 +39,22 @@
                }
            })
 
-           console.log(champName)
-           debugger
-           
+
+            console.log(champName)
+            debugger
+            
+
 
            // TODO :: make this next function get the object not a string.
 
-           var randChamp = localStorage.getItem(champs[champName], JSON.parse(champs[champName]));
-           console.log(randChamp)
-           
+            var randChamp = localStorage.getItem(champs[champName], JSON.parse(champs[champName]));
+            console.log(randChamp)
+            
 
-           console.log('YOU HAVE BEEN ASSIGNED', randChamp)
-           
-           
+            console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            
+            
+
 
            
 
@@ -79,10 +86,13 @@
              var champMastery = response.data
              return cb(champMastery)
 
-           })
-           })
-       }
 
-           }
-   
+            })
+            })
+        }
+
+            }
+    
 } ());
+
+

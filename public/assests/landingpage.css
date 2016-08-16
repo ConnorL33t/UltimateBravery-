@@ -1,5 +1,12 @@
 body{
-    background-color: rgba(15, 39, 57, 1)
+
+      background: url("http://wallpapersrage.com/wp-content/uploads/2016/05/EWB0009563-light_faded_background_85547_1920x1200-1024x640.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
 }
 
 
@@ -68,7 +75,7 @@ body{
 }
 
 .summoner-name{
-    color: rgba(231,76, 60, 1);
+    color: rgba(62, 96, 111, 1);
   font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
   font-weight: bold;
   font-size: 600%;
