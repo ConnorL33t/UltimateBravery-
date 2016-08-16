@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/summoner/:summonerName', function (req, res) {
 
     var base = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/',
-        apikey = '?api_key=RGAPI-1FD38CB3-6687-4D45-8D92-925AA6454D16',
+        apikey = '?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57',
     url = base + req.params.summonerName + apikey;
 
     request(url, function(err, response, body){

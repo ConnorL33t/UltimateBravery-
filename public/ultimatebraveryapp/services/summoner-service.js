@@ -1,17 +1,18 @@
 ; (function () {
     angular.module('ultimateBravery')
         .service('SummonerService', SummonerService)
+    
 
-    SummonerService.$inject = ['$http'];
+    SummonerService.$inject = ['$http', 'LeagueService'];
 
-    function SummonerService($http) {
+    function SummonerService($http, LeagueService) {
     
 
 
 
         var ss = this;
 
-        ss.getRandChampion = function(champ){ 
+        ss.getRandChampion = function(champ, LeagueService){ 
 
             console.log(champ)
             console.log(Object.keys(champ.champs))
@@ -35,13 +36,16 @@
             })
 
             console.log(champName)
+            debugger
             
 
             // TODO :: make this next function get the object not a string.
 
-            // var randChamp = [champName];
+            var randChamp = localStorage.getItem(champs[champName], JSON.parse(champs[champName]));
+            console.log(randChamp)
+            
 
-            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            console.log('YOU HAVE BEEN ASSIGNED', randChamp)
             
             
 
@@ -78,13 +82,8 @@
             })
             })
         }
-<<<<<<< HEAD
+
             }
     
 } ());
-=======
-    }
-} ());
 
-
->>>>>>> d325380d55c88303db222be3d006e3adf1e333ac

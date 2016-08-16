@@ -47,7 +47,7 @@
                
                 saveMasterLeagueList(champs)
                 cb(champs)
-                console.log(champs)
+                // console.log(champs)
            
                 $http({
                 method: 'GET',
@@ -63,7 +63,7 @@
                
                 saveMasterItemList(items)
                 cb(items)
-                console.log(items)                
+                // console.log(items)                
             }, function errorCallback(response) {
 
             });
