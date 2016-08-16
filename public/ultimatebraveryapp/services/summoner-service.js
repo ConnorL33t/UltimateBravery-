@@ -69,11 +69,10 @@
             var summoner = summoner
             if (!summoner) { return }
             $http.get('/summoner/' + summoner).then(function (result) {
-                $http.get('/summonerstat/' + result.data[summoner].id).then(function (response){
-              console.log(response)
+                $http.get('/summonerstat/' + result.data[summoner].id).then(function (response) {
                 })
             })
         }
 
     }
-    } ());
+} ());
