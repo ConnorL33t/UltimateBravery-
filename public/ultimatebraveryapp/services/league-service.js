@@ -7,9 +7,14 @@
     function LeagueService($http){
         var ls = this;
         var MasterLeagueList = [];
+        var MasterSpellList = [];
 
         function saveMasterLeagueList(champs){
             localStorage.setItem('champs', JSON.stringify(champs))
+        }
+
+         function saveMasterSpellList(champSpells){
+            localStorage.setItem('champSpells', JSON.stringify(champSpells))
         }
        
         this.getLeagueList = function(cb){
@@ -24,6 +29,12 @@
                 
                 for(var champ in champs){
                     champs[champ].img = `/image/lolimages/img/champion/${champ}.png`
+                    champs[champ].spells = [
+                        `/image/lolimages/img/spell/${champ}Q.png`,
+                        `/image/lolimages/img/spell/${champ}W.png`,
+                        `/image/lolimages/img/spell/${champ}E.png`
+                        
+                        ]
                 }
                
                 saveMasterLeagueList(champs)
@@ -34,8 +45,13 @@
 
             });
 
+
         
 
+      
         }
+
+
+        
     }
 }());
