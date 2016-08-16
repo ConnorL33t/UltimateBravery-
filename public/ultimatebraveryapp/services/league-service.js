@@ -33,8 +33,15 @@
                         `/image/lolimages/img/spell/${champ}Q.png`,
                         `/image/lolimages/img/spell/${champ}W.png`,
                         `/image/lolimages/img/spell/${champ}E.png`
-                        
                         ]
+                        if(champs[champ].img === `/image/lolimages/img/champion/Udyr.png`){
+                           champs[champ].spells = [
+                        `/image/lolimages/img/spell/${champ}Q.png`,
+                        `/image/lolimages/img/spell/${champ}W.png`,
+                        `/image/lolimages/img/spell/${champ}E.png`,
+                        `/image/lolimages/img/spell/${champ}R.png`
+                        ]
+                        }
                 }
                
                 saveMasterLeagueList(champs)
