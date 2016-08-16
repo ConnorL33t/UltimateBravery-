@@ -34,14 +34,13 @@
            var champName = Object.keys(champ.champs).find(function(champ, i){
            
                if(i == randomChampNumber){
-                   debugger
-                   return champ;
+                    return champ;
                }
            })
 
 
             console.log(champName)
-            debugger
+            
             
 
 
