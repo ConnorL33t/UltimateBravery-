@@ -5,47 +5,47 @@
     SummonerService.$inject = ['$http'];
 
     function SummonerService($http) {
-    
+
 
 
 
         var ss = this;
 
-        ss.getRandChampion = function(champ){ 
+        ss.getRandChampion = function (champ) {
 
             console.log(champ)
             console.log(Object.keys(champ.champs))
 
 
             // GETS random champ number from the list of owned champs for that user
-        
-             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
 
-             console.log(randomChampNumber)
+            let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
+
+            console.log(randomChampNumber)
 
 
-             // Finds that champ by matching randomChampNumber to our object of owned champs
+            // Finds that champ by matching randomChampNumber to our object of owned champs
 
-            var champName = Object.keys(champ.champs).find(function(champ, i){
-            
-                if(i == randomChampNumber){
+            var champName = Object.keys(champ.champs).find(function (champ, i) {
+
+                if (i == randomChampNumber) {
                     debugger
                     return champ;
                 }
             })
 
             console.log(champName)
-            
+
 
             // TODO :: make this next function get the object not a string.
 
             // var randChamp = [champName];
 
             // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
-            
-            
 
-            
+
+
+
 
         }
         // var SummonerInfo = [];
@@ -59,32 +59,32 @@
             $http.get('/summoner/' + summoner).then(function (response) {
                 var summonerObject = response.data;
                 return cb(summonerObject)
-                
-            
-            
+
+
+
             })
-            };
-        
-        ss.getSummonersChamps = function(summoner, cb){
+        };
+
+        ss.getSummonersChamps = function (summoner, cb) {
             var summoner = summoner
-            if(!summoner){return}
-            $http.get('/summoner/'+ summoner).then(function(response){
+            if (!summoner) { return }
+            $http.get('/summoner/' + summoner).then(function (response) {
                 // console.log(response.data)
-            return console.log(response.data[summoner].id), $http.get('/summonerstat/'+ response.data[summoner].id).then(function(response){
+                return console.log(response.data[summoner].id), $http.get('/summonerstat/' + response.data[summoner].id).then(function (response) {
 
-              var champMastery = response.data
-              return cb(champMastery)
+                    var champMastery = response.data
+                    return cb(champMastery)
 
-            })
+                })
             })
         }
-<<<<<<< HEAD
-            }
-    
-} ());
-=======
+
     }
+
+
+
+
 } ());
 
 
->>>>>>> d325380d55c88303db222be3d006e3adf1e333ac
+
