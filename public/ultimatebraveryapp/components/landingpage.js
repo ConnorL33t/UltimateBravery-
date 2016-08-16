@@ -61,14 +61,46 @@
 
 
         $ctrl.findMatchGame = function (champ, index) {
-        
-            debugger            
+            debugger
+
+
             $state.go('match')
 
 
-            let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+            SummonerService.getRandChampion($ctrl.user);
+
         
-            console.log(randomChampNumber)
+                        
+    
+
+
+            // let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+
+
+
+            // var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
+            //     if(i == randomChampNumber){
+            //         return champ;
+            //     }
+            // })
+
+            // var randChamp = $ctrl.champs[champName];
+
+            // console.log(randomChampNumber)
+            // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            
+
+
+
+            // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+            //     if(i == randomChampNumber){
+            //         return champ;
+            //     }
+            // })
+            
+        
+        
+
 
 
 
@@ -107,6 +139,7 @@
 
         $ctrl.champArray = [];
         LeagueService.getLeagueList(function (champs) {
+            $ctrl.champs = champs;
             Object.keys(champs).sort().forEach(function (x, i) {
                 $ctrl.champArray.push(champs[x])
             })
