@@ -68,23 +68,17 @@
         ss.getSummonersChamps = function(summoner, cb){
             var summoner = summoner
             if(!summoner){return}
-            $http.get('/summoner/'+ summoner).then(function(response){
-                // console.log(response.data)
-            return console.log(response.data[summoner].id), $http.get('/summonerstat/'+ response.data[summoner].id).then(function(response){
+            $http.get('/summoner/'+ summoner).then(function(result){
+    
+            return $http.get('/summonerstat/', {params: {"created_by": result.data[summoner].id}}).then(function(response){
 
               var champMastery = response.data
+              console.log(champMastery)
               return cb(champMastery)
 
             })
             })
         }
-<<<<<<< HEAD
             }
     
 } ());
-=======
-    }
-} ());
-
-
->>>>>>> d325380d55c88303db222be3d006e3adf1e333ac
