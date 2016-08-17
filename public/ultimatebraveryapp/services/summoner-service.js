@@ -29,12 +29,22 @@
            var champName = Object.keys(champ.champs).find(function(champ, i){
            
                if(i == randomChampNumber){
+<<<<<<< HEAD
                    
                    return champ;
                }
            })
 
            // Makes the randChamp an object located on var randChamp
+=======
+                    return champ;
+               }
+           })
+
+
+            console.log(champName)
+            
+>>>>>>> 5cbb38971bb8d6b5f078771d40d0d26a9b16e570
             
             var ChampList = JSON.parse(localStorage.getItem("champs"));
             
