@@ -122,8 +122,13 @@
 
             })
 
-            LeagueService.getKeystone(function (keystone) {
-                $ctrl.keystone = keystone;
+            LeagueService.getKeystone(function (masteries) {
+                $ctrl.masteries = masteries;
+
+            })
+
+            LeagueService.getSumSpells(function (summonerSpells) {
+                $ctrl.summonerSpells = summonerSpells;
 
             })
         }

@@ -58,6 +58,21 @@
       })
     }
     
+    let desiredSummonerSpells = {
+    }
+
+    mirrorProps(desiredSummonerSpells,[
+      'SummonerBarrier',
+      'SummonerBoost',
+      'SummonerDot',
+      'SummonerExhaust',
+      'SummonerFlash',
+      'SummonerHaste',
+      'SummonerHeal',
+      'SummonerSmite',
+      'SummonerTeleport'
+    ])
+
     let desiredMastery = {
     }
 
@@ -196,6 +211,27 @@
         saveMasteriesList(masteries)
         cb(masteries)
         console.log(masteries)
+      });
+    }
+
+     this.getSumSpells = function (cb) {
+      $http({
+        method: 'GET',
+        url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/summoner-spell?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
+      }).then(function (response) {
+        var summonerSpells = response.data.data;
+        for (var desiredSS in summonerSpells) {
+          
+          if(desiredSummonerSpells[desiredSS]){
+            summonerSpells[desiredSS].img = `/image/lolimages/img/summoner-spells/${desiredSS}.png` 
+          }else{
+            delete summonerSpells[desiredSS]
+          }
+          
+        }
+        saveMasteriesList(summonerSpells)
+        cb(summonerSpells)
+        console.log(summonerSpells)
       });
     }
   }
