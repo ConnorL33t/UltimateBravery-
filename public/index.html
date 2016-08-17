@@ -1,56 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ultimateBravery">
+
 <head>
     <meta charset="UTF-8">
     <title>UltimateBravery</title>
 
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="assests/homepage.css">
-    <link rel="stylesheet" href="assests/landingpage.css">
+    
     <link rel="stylesheet" href="assests/rules.css">
     <link rel="stylesheet" href="assests/quickmatch.css">
 </head>
-<body ng-app="appController">
 
-
-   
-
-<div ui-view>
-
-</div>
-
-   
-
-
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-beta.1/angular-ui-router.js"></script>
-
-<script src="app.js"></script>
-
-
-<!--COMPONENTS-->
-<script src="ultimatebraveryapp/components/quickmatch.js"></script>
-<script src="ultimatebraveryapp/components/rules.js"></script>
-<script src="ultimatebraveryapp/components/landingpage.js"></script>
-<script src="ultimatebraveryapp/components/homepage.js"></script>
-<script src="ultimatebraveryapp/components/gamematch.js"></script>
-
-
-<!--SERVICES-->
-<script src="ultimatebraveryapp/services/league-service.js"></script>
-<script src="ultimatebraveryapp/services/summoner-service.js"></script>
-
-
+<body ng-app="appController" ng-controller="appController">
 
     
+    <ui-view></ui-view>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-beta.1/angular-ui-router.js"></script>
+
+    <script src="app.js"></script>
+
+
+    <!--COMPONENTS-->
+    <script src="ultimatebraveryapp/components/quickmatch.js"></script>
+    <script src="ultimatebraveryapp/components/rules.js"></script>
+    <script src="ultimatebraveryapp/components/landingpage.js"></script>
+    <script src="ultimatebraveryapp/components/homepage.js"></script>
+    <script src="ultimatebraveryapp/components/gamematch.js"></script>
+
+
+    <!--SERVICES-->
+    <script src="ultimatebraveryapp/services/league-service.js"></script>
+    <script src="ultimatebraveryapp/services/summoner-service.js"></script>
+
+
+
+
 </body>
+
 </html>
