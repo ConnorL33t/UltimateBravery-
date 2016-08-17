@@ -17,11 +17,6 @@
         ss.getRandChampion = function(champ, LeagueService){ 
 
 
-
-           console.log(champ)
-           console.log(Object.keys(champ.champs))
-
-
            // GETS random champ number from the list of owned champs for that user
        
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
@@ -34,30 +29,19 @@
            var champName = Object.keys(champ.champs).find(function(champ, i){
            
                if(i == randomChampNumber){
-                   debugger
+                   
                    return champ;
                }
            })
 
-
-            console.log(champName)
-            debugger
+           // Makes the randChamp an object located on var randChamp
             
-
-
-           // TODO :: make this next function get the object not a string.
-
-            var randChamp = localStorage.getItem(champs[champName], JSON.parse(champs[champName]));
-            console.log(randChamp)
+            var ChampList = JSON.parse(localStorage.getItem("champs"));
             
-
-            console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+            var randChamp = ChampList[champName]
             
-            
-
-
-           
-
+            console.log("You have been assigned", randChamp)
+        
        }
        // var SummonerInfo = [];
 
