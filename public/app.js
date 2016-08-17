@@ -3,6 +3,8 @@
 
     angular.module('ultimateBravery', ['ui.router'])
 
+    var app = angular.module('ultimateBravery')
+
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/login');
