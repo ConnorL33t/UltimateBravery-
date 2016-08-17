@@ -1,10 +1,7 @@
-;(function(){
+; (function () {
 
 
     angular.module('ultimateBravery', ['ui.router'])
-
-
-        let app = angular.module('ultimateBravery')
 
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -23,28 +20,26 @@
                 url: '/gamematch',
                 component: 'gMComponent'
             })
-            .state('rules',{
+            .state('rules', {
                 url: '/rules',
                 component: 'rulesComponent'
             })
-             .state('quickmatch',{
+            .state('quickmatch', {
                 url: '/soloplay',
                 component: 'qMComponent'
             })
+    }]);
 
 
 
-        app.controller('appController', appController);
+    app.controller('appController', appController);
 
-        appController.$inject = ['$state','LeagueService'];
+    appController.$inject = ['$state', 'LeagueService'];
 
-        function appController($state, LeagueService) {
-            let ac = this;
+    function appController($scope, $rootScope, $state, LeagueService) {
 
-        }
-    
-}]);
+    }
 
 
 
-}());
+} ());
