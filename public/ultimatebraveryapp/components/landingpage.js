@@ -115,25 +115,17 @@
                 Object.keys(champs).sort().forEach(function (x, i) {
                     $ctrl.champArray.push(champs[x])
                 })
-                // $ctrl.champArray is an array sorted alphabetically by index, console logging will not work outside of 
-                // LeagueService.getLeagueList because of async (gotta love async)
-                // also figured out that you can only get 99 champs at once so this function is being executed twice. 
-
             })
             
             LeagueService.getItems(function (items) {
                 $ctrl.items = items;
-                // $ctrl.champArray is an array sorted alphabetically by index, console logging will not work outside of 
-                // LeagueService.getLeagueList because of async (gotta love async)
-                // also figured out that you can only get 99 champs at once so this function is being executed twice. 
 
             })
 
-            LeagueService.getKeystone(function (keystone){
+            LeagueService.getKeystone(function (keystone) {
                 $ctrl.keystone = keystone;
+
             })
-
-
         }
     }
 

@@ -17,10 +17,9 @@
       localStorage.setItem('items', JSON.stringify(items))
     }
 
-    function saveMasterKeystoneList(keystone) {
-      localStorage.setItem('keystone', JSON.stringify(keystone))
+    function saveMasteriesList(masteries) {
+    localStorage.setItem('masteries', JSON.stringify(masteries))
     }
-
 
     this.getLeagueList = function (cb) {
       $http({
@@ -53,6 +52,111 @@
       });
     }
 
+    function mirrorProps(obj, props){
+      props.forEach(p=>{
+        obj[p] = p;
+      })
+    }
+    
+    let desiredMastery = {
+    }
+
+    mirrorProps(desiredMastery,[
+      6161,
+      6162,
+      6164,
+      6261,
+      6262,
+      6263,
+      6361,
+      6362,
+      6363
+    ])
+
+    let desiredItems = {
+    }
+
+    mirrorProps(desiredItems,[
+      1408,
+      1409,
+      1410,
+      1412,
+      1413,
+      1414,
+      1416,
+      1418,
+      1419,
+      2301,
+      2302,
+      2303,
+      3001,
+      3003,
+      3004,
+      3006,
+      3009,
+      3020,
+      3022,
+      3025,
+      3026,
+      3027,
+      3030,
+      3031,
+      3033,
+      3036,
+      3041,
+      3046,
+      3047,
+      3050,
+      3053,
+      3056,
+      3060,
+      3065,
+      3068,
+      3069,
+      3071,
+      3072,
+      3074,
+      3075,
+      3078,
+      3083,
+      3085,
+      3087,
+      3089,
+      3091,
+      3092,
+      3094,
+      3100,
+      3102,
+      3110,
+      3111,
+      3115,
+      3116,
+      3117,
+      3124,
+      3135,
+      3139,
+      3142,
+      3143,
+      3146,
+      3147,
+      3151,
+      3152,
+      3153,
+      3156,
+      3157,
+      3158,
+      3174,
+      3190,
+      3222,
+      3285,
+      3401,
+      3508,
+      3512,
+      3742,
+      3800,
+      3812
+    ])
+    
     this.getItems = function (cb) {
       $http({
         method: 'GET',
@@ -60,12 +164,17 @@
       }).then(function (response) {
         var items = response.data.data;
         for (var item in items) {
-          items[item].img = `/image/lolimages/img/item/${item}.png`
+          
+          if(desiredItems[item]){
+            items[item].img = `/image/lolimages/img/item/${item}.png` 
+          }else{
+            delete items[item]
+          }
+          
         }
         saveMasterItemList(items)
         cb(items)
         console.log(items)
-
       });
     }
 
@@ -76,14 +185,18 @@
       }).then(function (response) {
         var masteries = response.data.data;
         for (var keystone in masteries) {
-          masteries[keystone].img = `/image/lolimages/img/mastery/${keystone}.png`
+          
+          if(desiredMastery[keystone]){
+            masteries[keystone].img = `/image/lolimages/img/mastery/${keystone}.png` 
+          }else{
+            delete masteries[keystone]
+          }
+          
         }
-        saveMasterKeystoneList(masteries)
+        saveMasteriesList(masteries)
         cb(masteries)
         console.log(masteries)
-
       });
     }
-
   }
 } ());
