@@ -88,10 +88,9 @@
       6363
     ])
 
-    let desiredItems = {
-    }
+    let wantedItems = {};
 
-    mirrorProps(desiredItems,[
+    mirrorProps(wantedItems,[
       1408,
       1409,
       1410,
@@ -178,18 +177,24 @@
         url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/item?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
       }).then(function (response) {
         var items = response.data.data;
+        var jungleItems = [];
+        var supportItems = [];
         for (var item in items) {
           
-          if(desiredItems[item]){
+          if(wantedItems[item]){
             items[item].img = `/image/lolimages/img/item/${item}.png` 
           }else{
             delete items[item]
+          }
+          if(wantedItems[1408] || wantedItems[1409] || wantedItems[1410] || wantedItems[1412] || wantedItems[1413] || wantedItems[1414] || wantedItems[1416] || wantedItems[1418] || wantedItems[1419]){
+            jungleItems.push(item)
           }
           
         }
         saveMasterItemList(items)
         cb(items)
         console.log(items)
+        console.log(jungleItems)
       });
     }
 

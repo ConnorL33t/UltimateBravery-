@@ -42,8 +42,10 @@
            var ChampList = JSON.parse(localStorage.getItem("champs"));
            
            var randChamp = ChampList[champName]
-           
-    
+          
+           var randomSpells = randChamp.spells[Math.floor(Math.random() * randChamp.spells.length)]  
+           console.log("actual list of spells", randChamp.spells)
+            console.log("Yo spells", randomSpells)
             console.log("You have been assigned", randChamp)
        
        }
