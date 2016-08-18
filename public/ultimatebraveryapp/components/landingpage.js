@@ -66,11 +66,11 @@
                 })
 
                 var randChamp = $ctrl.champs[champName];
-                var randSpell = $ctrl.champs[champName].spell;
+               
 
                 // console.log(randomChampNumber)
                 console.log('YOU HAVE BEEN ASSIGNED', randChamp)
-                console.log(randSpell)
+                
 
 
 
