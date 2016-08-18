@@ -44,7 +44,11 @@
             
             var randChamp = ChampList[champName]
             
+<<<<<<< HEAD
             console.log("You have been assigned", randChamp)
+=======
+             console.log("You have been assigned", randChamp)
+>>>>>>> 016b4ee9f3f59a48929c672cd79b34e41730eba9
         
        }
 
