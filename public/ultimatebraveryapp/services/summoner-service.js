@@ -40,11 +40,11 @@
            // Makes the randChamp an object located on var randChamp
 
             
-            // var ChampList = JSON.parse(localStorage.getItem("champs"));
+            var ChampList = JSON.parse(localStorage.getItem("champs"));
             
-            // var randChamp = ChampList[champName]
+            var randChamp = ChampList[champName]
             
-            // console.log("You have been assigned", randChamp)
+             console.log("You have been assigned", randChamp)
         
        }
        // var SummonerInfo = [];

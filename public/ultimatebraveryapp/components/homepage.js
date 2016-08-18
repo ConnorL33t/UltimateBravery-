@@ -25,7 +25,7 @@
 
             $('#ytpPlayer').append(`<div id="ppp" class="player"></div>`).after(function () {
                 var videos = [
-                    { videoURL: 'https://youtu.be/lu0fUb0PGh4', containment: 'body', autoPlay: true, showYTLogo: false, mute: true, startAt: 0, opacity: 1, showControls: false, optimizeDisplay: true, realfullscreen: true, quality: 'hd1080', addRaster: false, gaTrack: false }
+                    { videoURL: 'https://youtu.be/lu0fUb0PGh4', containment: 'body', autoPlay: true, showYTLogo: false, mute: false, startAt: 0, opacity: .6, showControls: false, optimizeDisplay: true, realfullscreen: true, quality: 'hd1080', addRaster: false, gaTrack: false }
                 ];
                 ubc.ytpElem = $("#ppp").YTPlaylist(videos, true, function (a) {
 
