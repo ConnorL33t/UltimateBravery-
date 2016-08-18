@@ -23,7 +23,7 @@
        
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
 
-//             console.log(randomChampNumber)
+            console.log(randomChampNumber)
 
 
             // Finds that champ by matching randomChampNumber to our object of owned champs
@@ -40,13 +40,29 @@
            // Makes the randChamp an object located on var randChamp
 
             
-            // var ChampList = JSON.parse(localStorage.getItem("champs"));
+            var ChampList = JSON.parse(localStorage.getItem("champs"));
             
-            // var randChamp = ChampList[champName]
+            var randChamp = ChampList[champName]
             
-            // console.log("You have been assigned", randChamp)
+            console.log("You have been assigned", randChamp)
         
        }
+
+        ss.getRandSpells = function(item, LeagueService){
+           let randomItemNumber = Math.floor(Math.random() * Object.keys(item).length)
+
+           console.log(randomItemNumber)
+
+           var itemName = Object.keys(item.items).find(function(item, i){
+                if(i == randomItemNumber){
+                    return item;
+                }
+           })
+           var ItemList = JSON.parse(localStorage.getItem("items"));
+           var randItem = ItemList[itemName]
+           console.log("These are your items ya fuck", randItem)
+           }
+        
        // var SummonerInfo = [];
 
        // function saveM(champs){
