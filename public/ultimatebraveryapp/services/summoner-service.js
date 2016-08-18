@@ -22,6 +22,7 @@
        
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
 
+
             console.log(randomChampNumber)
 
             // Finds that champ by matching randomChampNumber to our object of owned champs
