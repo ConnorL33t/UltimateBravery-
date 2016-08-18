@@ -84,11 +84,12 @@
             }
 
 
-            $ctrl.findMatchGame = function (champ, index) {
+            $ctrl.findMatchGame = function (champ, item, index) {
 
                 $state.go('match')
 
                 SummonerService.getRandChampion($ctrl.user);
+                SummonerService.getRandSpells($ctrl.user.champ);
 
                 let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
 
@@ -114,6 +115,20 @@
                     }
                 })
 
+            ss.getRandSpells = function(item, LeagueService){
+           let randomItemNumber = Math.floor(Math.random() * Object.keys(item).length)
+
+           console.log(randomItemNumber)
+
+           var itemName = Object.keys(item.items).find(function(item, i){
+                if(i == randomItemNumber){
+                    return item;
+                }
+           })
+           var ItemList = JSON.parse(localStorage.getItem("items"));
+           var randItem = ItemList[itemName]
+           console.log("These are your items ya fuck", randItem)
+           }
             }
 
 
