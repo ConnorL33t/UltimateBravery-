@@ -37,10 +37,6 @@
             })
 
 
-            $ctrl.quickmatch = function () {
-                $state.go('quickmatch')
-            }
-
 
             $ctrl.rules = function () {
                 $state.go('rules')
@@ -54,6 +50,39 @@
                 }
             }
 
+            $ctrl.quickmatch = function (champ,index) {
+                $state.go('quickmatch')
+
+                SummonerService.getRandChampion($ctrl.user);
+
+                let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+
+
+
+                var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
+                    if(i == randomChampNumber){
+                        return champ;
+                    }
+                })
+
+                var randChamp = $ctrl.champs[champName];
+                var randSpell = $ctrl.champs[champName].spell;
+
+                // console.log(randomChampNumber)
+                console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+                console.log(randSpell)
+
+
+
+
+                var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+                    if(i == randomChampNumber){
+                        return champ;
+                    }
+                })
+
+            }
+
 
             $ctrl.findMatchGame = function (champ, index) {
 
@@ -61,29 +90,29 @@
 
                 SummonerService.getRandChampion($ctrl.user);
 
-                // let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
+                let randomChampNumber = Math.floor(Math.random() * Object.keys($ctrl.user.champs).length)
 
 
 
-                // var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
-                //     if(i == randomChampNumber){
-                //         return champ;
-                //     }
-                // })
+                var champName = Object.keys($ctrl.user.champs).find(function(champ, i){
+                    if(i == randomChampNumber){
+                        return champ;
+                    }
+                })
 
-                // var randChamp = $ctrl.champs[champName];
+                var randChamp = $ctrl.champs[champName];
 
                 // console.log(randomChampNumber)
-                // console.log('YOU HAVE BEEN ASSIGNED', randChamp)
+                console.log('YOU HAVE BEEN ASSIGNED', randChamp)
 
 
 
 
-                // var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
-                //     if(i == randomChampNumber){
-                //         return champ;
-                //     }
-                // })
+                var randChamp = (Object.keys($ctrl.user.champs)).find(function(champ, i){
+                    if(i == randomChampNumber){
+                        return champ;
+                    }
+                })
 
             }
 
