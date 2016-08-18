@@ -21,7 +21,7 @@
 
            // GETS random champ number from the list of owned champs for that user
        
-            let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
+            let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
 
 //             console.log(randomChampNumber)
 
