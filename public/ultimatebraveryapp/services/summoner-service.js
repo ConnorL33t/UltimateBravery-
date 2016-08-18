@@ -14,6 +14,8 @@
 
        var ss = this;
 
+       
+
         ss.getRandChampion = function(champ, LeagueService){ 
 
 
@@ -21,7 +23,7 @@
        
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
 
-            console.log(randomChampNumber)
+//             console.log(randomChampNumber)
 
 
             // Finds that champ by matching randomChampNumber to our object of owned champs
@@ -38,11 +40,11 @@
            // Makes the randChamp an object located on var randChamp
 
             
-            var ChampList = JSON.parse(localStorage.getItem("champs"));
+            // var ChampList = JSON.parse(localStorage.getItem("champs"));
             
-            var randChamp = ChampList[champName]
+            // var randChamp = ChampList[champName]
             
-            console.log("You have been assigned", randChamp)
+            // console.log("You have been assigned", randChamp)
         
        }
        // var SummonerInfo = [];
