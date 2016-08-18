@@ -1,30 +1,28 @@
-
 ; (function () {
-    angular.module('ultimateBravery')
-        .service('SummonerService', SummonerService)
-    
+   angular.module('ultimateBravery')
+       .service('SummonerService', SummonerService)
+   
 
-    SummonerService.$inject = ['$http', 'LeagueService'];
+   SummonerService.$inject = ['$http', 'LeagueService'];
 
-    function SummonerService($http, LeagueService) {
-    
+   function SummonerService($http, LeagueService) {
+   
 
 
 
 
        var ss = this;
 
-       
+     
 
-        ss.getRandChampion = function(champ, LeagueService){ 
+       ss.getRandChampion = function(champ, LeagueService){
 
 
            // GETS random champ number from the list of owned champs for that user
        
-            let randomChampNumber = Math.floor(Math.random() * Object.keys(champ).length)
+            let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
 
-            console.log(randomChampNumber)
-
+            console.log(randomChampNumber)
 
             // Finds that champ by matching randomChampNumber to our object of owned champs
 
@@ -39,32 +37,15 @@
 
            // Makes the randChamp an object located on var randChamp
 
-            
-            var ChampList = JSON.parse(localStorage.getItem("champs"));
-            
-            var randChamp = ChampList[champName]
-            
-
-            console.log("You have been assigned", randChamp)
-
-        
+           
+           var ChampList = JSON.parse(localStorage.getItem("champs"));
+           
+           var randChamp = ChampList[champName]
+           
+    
+            console.log("You have been assigned", randChamp)
+       
        }
-
-        ss.getRandSpells = function(item, LeagueService){
-           let randomItemNumber = Math.floor(Math.random() * Object.keys(item).length)
-
-           console.log(randomItemNumber)
-
-           var itemName = Object.keys(item.items).find(function(item, i){
-                if(i == randomItemNumber){
-                    return item;
-                }
-           })
-           var ItemList = JSON.parse(localStorage.getItem("items"));
-           var randItem = ItemList[itemName]
-           console.log("These are your items ya fuck", randItem)
-           }
-        
        // var SummonerInfo = [];
 
        // function saveM(champs){
@@ -86,19 +67,17 @@
            var summoner = summoner
            if(!summoner){return}
            $http.get('/summoner/'+ summoner).then(function(response){
-               // console.log(response.data)
-           return console.log(response.data[summoner].id), $http.get('/summonerstat/'+ response.data[summoner].id).then(function(response){
+           
+           return  $http.get('/summonerstat/'+ response.data[summoner].id).then(function(response){
 
              var champMastery = response.data
              return cb(champMastery)
 
 
-            })
-            })
-        }
+           })
+           })
+       }
 
-            }
-    
+           }
+   
 } ());
-
-
