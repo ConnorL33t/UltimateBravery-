@@ -30,6 +30,10 @@
                 url: '/soloplay',
                 component: 'qMComponent'
             })
+            .state('sockets', {
+                url: '/sockets',
+                component: 'sockets'
+            })
     }]);
 
 

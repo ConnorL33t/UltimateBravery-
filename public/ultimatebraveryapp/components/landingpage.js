@@ -4,9 +4,10 @@
             templateUrl: 'ultimatebraveryapp/templates/landingpage.html',
             controller: LPController
         })
-    LPController.$inject = ['$state', 'LeagueService', 'SummonerService'];
-    function LPController($state, LeagueService, SummonerService) {
+    LPController.$inject = ['$state', 'LeagueService', 'SummonerService', 'SocketService', '$timeout'];
+    function LPController($state, LeagueService, SummonerService, SocketService, $timeout) {
         var $ctrl = this;
+        var socket;
         $ctrl.user = {
             summoner: $state.params.summoner,
             champs: {
@@ -19,11 +20,16 @@
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
                 console.log(summoner)
                 if (summoner.status) {
-                    $state.go('login')
+                    return $state.go('login');
                 }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
                 $ctrl.user.profileIcon = `/image/lolimages/img/profileicon/${summoner[cleanSummonerName].profileIconId}.png`
+                socket = SocketService.connect(summoner);
+                $ctrl.client = SocketService.getClient();
+                $timeout(function(){
+                    $ctrl.summonerCount = Object.keys($ctrl.client.room.summoners).length
+                }, 3000)
             })
             $ctrl.rules = function () {
                 $state.go('rules')
