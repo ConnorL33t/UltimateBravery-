@@ -8,26 +8,31 @@ const express = require('express'),
 	chatClients = {},
     path = require('path'),
 	rooms = ['general', 'queue', 'party'],
+	teams = {},
 	actualRooms = {
 		lobby: {
 			room: 'Lobby',
-			summoners: {}
-		},
-		general: {
-			room: 'General',
-			summoners: {}
+			summoners: []
 		},
 		queue: {
 			room: 'Queue',
-			summoners: {}
+			summoners: []
 		},
 		parties: {
 			//Dynamically add party rooms
 		},
 		games: {
-			//THIS WILL be the same as parties but different
+			queing: [],
+			confirmed: {}
 		}
 	};
+
+function Game(){
+	this.id = uuid.v1();
+	this.summoners = [];
+	this.teams = [{},{}];
+	actualRooms.games.queing.push(this);
+}
 
 server.listen(process.env.PORT || 8080);
 
@@ -63,109 +68,112 @@ app.get('/summonerstat/:summonerId', function (req, res) {
 
 })
 
-// begin hell 
+// begin AWESOMENESS hell 
 
 io.on('connect', function (socket) {
-	socket.on('connected', function(summoner){
-		if(!summoner){
+	socket.on('connected', function (summoner) {
+		if (!summoner) {
 			return socket.emit('Invalid Connection')
 		}
-		connect(socket, {summoner: summoner});
+		connect(socket, { summoner: summoner });
 	})
 
 	socket.on('chatmessage', function (data) {
 		chatmessage(socket, {});
 	});
+	
 	socket.on('queueUp', function (data) {
 		queueUp(socket, {});
 	});
+
 	socket.on('leaveQueue', function (data) {
 		leaveQueue(socket, {});
 	});
-	
+
 	socket.on('disconnect', function () {
-		let summoner = chatClients[socket.id];
-		if(actualRooms[summoner.room]){
-			delete actualRooms[summoner.room].summoners[socket.id];
-		} 
+		leaveRoom(socket.id);
 		delete chatClients[socket.id];
 	});
+
+	socket.on('back-button', function(){
+		leaveRoom(socket.id);
+		delete chatClients[socket.id];
+	})
 
 	socket.on('joinroom', function (data) {
 		queueUp(socket, data.room);
 	})
 
 });
+
 function connect(socket, summoner) {
+	summoner.socketId = socket.id;
 	chatClients[socket.id] = summoner;
-	// socket.emit('ready', { clientId: data.clientId });
 	queueUp(socket, 'lobby');
-	// socket.emit('roomslist', { rooms: getRooms() });
 }
-function disconnect(socket) {
-    // let rooms = io.sockets.adapter.roomClients[socket.id];
-    // for (let room in rooms) {
-	// 	if (room && rooms[room]) {
-	// 		leaveQueue(socket, { room: room.replace('/', '') });
-	// 	}
-	// }
-	// delete chatClients[socket.id];
 
-
-}
 function chatmessage(socket, data) {
 	socket.broadcast.to(data.room).emit('chatmessage', {
 		client:
 		chatClients[socket.id], message: data.message, room: data.room
 	});
 }
+
 function queueUp(socket, room) {
-	// get a list of all active rooms
-	// var rooms = getRooms();
-
-	// if (rooms.indexOf('/' + data.room) <= 0) {
-	// 	socket.broadcast.emit('addroom', { room: data.room });
-	// }
-
+	leaveRoom(socket.id);
 	socket.join(room);
-	if(room == 'parties'){
+	if (room == 'parties') {
 		//TODO: do stuff later
 	}
-	var r = actualRooms[room] = actualRooms[room] || {summoners:{}}
-	chatClients[socket.id].room = room; 
-	r.summoners[socket.id] = chatClients[socket.id];
+	var r = actualRooms[room] = actualRooms[room] || { summoners: [] }
+	chatClients[socket.id].room = room;
+	r.summoners.push(chatClients[socket.id]);
 	socket.emit('joined', actualRooms[room]);
 }
-function leaveQueue(socket, data) {
-	updatePresence(data.room, socket, 'offline');
-	socket.leave(data.room);
-	if (!countClientsInRoom(data.room)) {
-		io.sockets.emit('removeroom', { room: data.room });
-	}
-}
+
 function getRooms() {
 	return rooms;
 }
-function getClientsInRoom(socketId, room) {
-	var socketIds = io.sockets.adapter.rooms['/' + room];
-	var clients = [];
 
-	if (socketIds && socketIds.length > 0) {
-		socketsCount = socketIds.lenght;
-		for (var i = 0, len = socketIds.length; i < len; i++) {
-
-			if (socketIds[i] != socketId) {
-				clients.push(chatClients[socketIds[i]]);
-			}
-		}
+function leaveRoom(socketId) {
+	let summoner = chatClients[socketId];
+	if(!summoner){ return }
+	let r = actualRooms[summoner.room]
+	if (r) {
+		let i = r.summoners.indexOf(summoner);
+		r.summoners.splice(i, 1);
+		//TODO:: broadcast user left
 	}
-
-	return clients;
 }
-function countClientsInRoom(room) {
 
-	if (io.sockets.adapter.rooms['/' + room]) {
-		return io.sockets.adapter.rooms['/' + room].length;
+function assignGame(){
+	let game = games.queing[0] || new Game();
+	let players = actualRooms.queue.summoners; 
+	var player = players.shift();
+
+	if(Object.keys(game.summoners).length > 10){
+		game = new Game();
 	}
-	return 0;
+
+	if(chatClients[player.id]){
+		player.gameId = game.id;
+		game.summoners[player.socketId] = player;
+	}
+	return game;
+}
+
+function confirmPlayer(id, game){
+	let summoner = chatClients[id];
+	if(summoner){
+		game.summoners[id].confirmed = true;
+	}else{
+		delete game.summoners[id]
+	}
+	//TODO:: io.broadcast???
+}
+
+function confirmGame(game){
+	actualRooms.games.confirmed[game.id] = game;
+	let i = actualRooms.games.queing.indexOf(game);
+	actualRooms.games.queing.splice(i, 1);
 }

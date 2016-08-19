@@ -8,14 +8,16 @@
 
 
 
-        QRController.$inject = ['$state', 'LeagueService', 'SummonerService']
+        QRController.$inject = ['$state', 'SocketService']
 
 
 
 
-        function QRController($state, LeagueService, SummonerService){
+        function QRController($state, SocketService){
             var qr = this;
+            var socket = SocketService.getSocket();
 
+            qr.client = SocketService.getClient();
 
 
         }
