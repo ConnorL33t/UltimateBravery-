@@ -41,7 +41,7 @@
 
             // $state.go('landingpage', {summoner: summoner})
 
-            $state.go('landingpage', { summoner: summoner })
+             return $state.go('landingpage', { summoner: summoner })
 
 
         }
