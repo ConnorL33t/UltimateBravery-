@@ -42,11 +42,11 @@
                 }
             }
             $ctrl.quickmatch = function () {
-                $state.go('quickmatch')
+                return $state.go('quickmatch')
                
             }
             $ctrl.findMatchGame = function (champ, index) {
-                $state.go('match')
+                 $state.go('match')
                 SummonerService.getRandChampion($ctrl.user);
                
             }
