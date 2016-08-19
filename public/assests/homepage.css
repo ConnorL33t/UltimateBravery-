@@ -1,19 +1,4 @@
-/*html{
-    min-height: 100%;
-     background: url("http://i.imgur.com/pEs5DEb.gif") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}*/
 
-
-
-  
-
-
-
-  
 
 .main-background{   
   background: transparent;
@@ -24,7 +9,6 @@
 .footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
   height: 60px;
   color: rgba(236,250, 241, 1);
   font-family: 'Roboto', sans-serif;
@@ -40,33 +24,31 @@
 }
 
 .ultimate-bravery h1{
-  color: rgba(255, 255, 255, 1);
+  color: #1695A3;
   font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
   font-weight: bold;
   font-size: 600%;
   margin-top: 90px;
-  /*text-align: center;*/  
+  
 }
 
 #summoner-input{
   text-align: center;
+  opacity: .8;
+  background: #F3FFE2;
 }
 
  .find-button{
-background: #E74C3C;
-  background-image: -webkit-linear-gradient(top, #E74C3C, #D94738);
-  background-image: -moz-linear-gradient(top, #E74C3C, #D94738);
-  background-image: -ms-linear-gradient(top, #E74C3C, #D94738);
-  background-image: -o-linear-gradient(top, #E74C3C, #D94738);
-  background-image: linear-gradient(to bottom, #E74C3C, #D94738);
-  font-family: Arial;
-  color: #E3E7E8;
-  font-size: 29px;
+-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Georgia;
+  color: rgba(236,240,241, 1);
+  font-size: 31px;
+  background: rgba(41,128,185, .4);
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border: none;
-  opacity:  .5;
-
 }
 
 .summoner-form{
@@ -74,8 +56,9 @@ background: #E74C3C;
 }
 
 .find-button:hover {
-  background: #F55140;
+   background:rgba(41,128,185, .7);
   text-decoration: none;
+
 }
 
 html{
