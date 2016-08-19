@@ -46,14 +46,10 @@
                
             }
             $ctrl.findMatchGame = function (champ, index) {
-<<<<<<< HEAD
+
                 $state.go('match')
                 SocketService.enterQ()
-=======
-                 $state.go('match')
->>>>>>> 4cbd4723416cdb53c692624305bc5f1a968e77e8
-                SummonerService.getRandChampion($ctrl.user);
-               
+
             }
             $ctrl.champBtn = "Select All Champions"
             var on = false
