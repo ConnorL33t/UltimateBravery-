@@ -5,6 +5,7 @@
       var ss = this;
       var socket;
       var CLIENT = CLIENT || {};
+      window.onhashchange = getSocket
       
       return {
         getSocket,
@@ -18,12 +19,14 @@
       }
 
       function getSocket(){
+        if(socket){
+          return socket.emit('back-button')
+        }
+        socket = socket || io.connect('http://localhost:8080');
         return socket;
       }
 
       function connect(summoner) {
-        socket = socket || io.connect('http://localhost:8080');
-
         socket.emit('connected', summoner)
 
         socket.on('roomslist', function (data) {
@@ -32,8 +35,8 @@
         })
 
         socket.on('joined', function (d) {
-          console.log('JOINED:', d);
           CLIENT.room = d;
+          _update()
         })
 
         return socket;
