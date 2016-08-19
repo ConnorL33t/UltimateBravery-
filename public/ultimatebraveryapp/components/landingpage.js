@@ -26,10 +26,8 @@
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
                 $ctrl.user.profileIcon = `/image/lolimages/img/profileicon/${summoner[cleanSummonerName].profileIconId}.png`
                 socket = SocketService.connect(summoner);
+
                 $ctrl.client = SocketService.getClient();
-                $timeout(function(){
-                    $ctrl.summonerCount = Object.keys($ctrl.client.room.summoners).length
-                }, 3000)
             })
             $ctrl.rules = function () {
                 $state.go('rules')
@@ -42,13 +40,15 @@
                 }
             }
             $ctrl.quickmatch = function () {
+
                 $state.go('quickmatch')
-               
+
             }
             $ctrl.findMatchGame = function (champ, index) {
-                $state.go('match')
-                SummonerService.getRandChampion($ctrl.user);
-               
+                // SummonerService.getRandChampion($ctrl.user);
+                SocketService.joinRoom('queue')
+                $state.go('queue')
+
             }
             $ctrl.champBtn = "Select All Champions"
             var on = false
@@ -73,7 +73,7 @@
                     $ctrl.champArray.push(champs[x])
                 })
             })
-            
+
             LeagueService.getItems(function (items) {
                 $ctrl.items = items;
             })

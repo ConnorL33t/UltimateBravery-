@@ -18,6 +18,10 @@
                 url: '/summonerpage/:summoner',
                 component: 'lPComponent'
             })
+            .state('queue', {
+                url: '/queue',
+                component: 'qRComponent'
+            })
             .state('match', {
                 url: '/gamematch',
                 component: 'gMComponent'
@@ -40,10 +44,10 @@
 
     app.controller('appController', appController);
 
-    appController.$inject = ['$state', 'LeagueService'];
+    appController.$inject = ['SocketService'];
 
-    function appController($scope, $rootScope, $state, LeagueService) {
-
+    function appController(SocketService) {
+        let socket = SocketService.getSocket();
     }
 
 
