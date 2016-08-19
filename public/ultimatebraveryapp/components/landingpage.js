@@ -40,6 +40,7 @@
                 }
             }
             $ctrl.quickmatch = function () {
+
                 $state.go('quickmatch')
 
             }
@@ -47,6 +48,7 @@
                 // SummonerService.getRandChampion($ctrl.user);
                 SocketService.joinRoom('queue')
                 $state.go('queue')
+
             }
             $ctrl.champBtn = "Select All Champions"
             var on = false
