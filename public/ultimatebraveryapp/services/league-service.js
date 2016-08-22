@@ -92,6 +92,9 @@
     }
 
     mirrorProps(desiredItems,[
+      1400,
+      1401,
+      1402,
       1408,
       1409,
       1410,
@@ -181,23 +184,24 @@
         var jungleItems = [];
         var supportItems = [];
         var boots = [];
-        var allItems = [];
+        var otherItems = [];
         for (var item in items) {
           
           if(desiredItems[item]){
             items[item].img = `/image/lolimages/img/item/${item}.png` 
-          if(desiredItems[item] === 1408 || desiredItems[item] === 1409 || desiredItems[item] === 1410 || desiredItems[item] === 1412 || desiredItems[item] === 1413 || desiredItems[item] === 1414 || desiredItems[item] === 1416 || desiredItems[item] === 1418 || desiredItems[item] === 1419){
+          if(desiredItems[item] === 1400 || desiredItems[item] === 1401 || desiredItems[item] === 1402 || desiredItems[item] === 1408 || desiredItems[item] === 1409 || desiredItems[item] === 1410 || desiredItems[item] === 1412 || desiredItems[item] === 1413 || desiredItems[item] === 1414 || desiredItems[item] === 1416 || desiredItems[item] === 1418 || desiredItems[item] === 1419){
             Object.keys(desiredItems[item])
             jungleItems.push(desiredItems[item])
           }
-          if(desiredItems[item] == 2301 || desiredItems[item] == 2302 || desiredItems[item] == 2303 ||  desiredItems[item] == 3069 || desiredItems[item] == 3092 || desiredItems[item] == 3401){
+          if(desiredItems[item] === 2301 || desiredItems[item] === 2302 || desiredItems[item] === 2303 ||  desiredItems[item] === 3069 || desiredItems[item] === 3092 || desiredItems[item] === 3401){
             Object.keys(desiredItems[item])
             supportItems.push(desiredItems[item])
           }
-          if(desiredItems[item] == 3158 || desiredItems[item] == 3117 || desiredItems[item] == 3111 || desiredItems[item] == 3047 || desiredItems[item] == 3020 || desiredItems[item] == 3009 || desiredItems[item] == 3006){
+          if(desiredItems[item] == 3158 || desiredItems[item] === 3117 || desiredItems[item] === 3111 || desiredItems[item] === 3047 || desiredItems[item] === 3020 || desiredItems[item] === 3009 || desiredItems[item] === 3006){
             Object.keys(desiredItems[item])
             boots.push(desiredItems[item])
           }
+        
           }else{
             delete items[item]
           }
@@ -208,6 +212,7 @@
         console.log('Jungle Items: ',jungleItems)
         console.log('Support items: ', supportItems)
         console.log('boots: ', boots)
+        
       });
     }
 
