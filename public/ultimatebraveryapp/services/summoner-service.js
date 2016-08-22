@@ -16,40 +16,51 @@
      
 
        ss.getRandChampion = function(champ, LeagueService){
-  debugger
-
-
-           // GETS random champ number from the list of owned champs for that user
-       
+ 
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
-
-
             console.log(randomChampNumber)
-
-            // Finds that champ by matching randomChampNumber to our object of owned champs
-
            var champName = Object.keys(champ.champs).find(function(champ, i){
-           
-               if(i == randomChampNumber){
-
-                   
+               if(i == randomChampNumber){ 
                    return champ;
                }
            })
 
-           // Makes the randChamp an object located on var randChamp
-
-           
-           var ChampList = JSON.parse(localStorage.getItem("champs"));
-           
+           var ChampList = JSON.parse(localStorage.getItem("champs"));   
            var randChamp = ChampList[champName]
-          
            var randomSpells = randChamp.spells[Math.floor(Math.random() * randChamp.spells.length)]  
            console.log("actual list of spells", randChamp.spells)
             console.log("Yo spells", randomSpells)
             console.log("You have been assigned", randChamp)
        
        }
+
+      ss.getRandMastery = function (keystone, LeagueService){
+  
+       let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
+       console.log(randomKeystoneNumber)
+        var keystoneName = Object.keys(keystone).find(function(keystone, i){
+          if( i == randomKeystoneNumber){
+            return keystone
+          }
+        })
+
+        var KeystoneList = JSON.parse(localStorage.getItem("keystone"));   
+        var randKeystone = KeystoneList[keystoneName]
+        console.log("Keystone", randKeystone)
+      }
+
+      ss.getRandSumms = function (desiredSS, LeagueService){
+        let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
+        console.log(randomSummNumber)
+        debugger
+        var summsName = Object.keys(desiredSS).find(function(desiredSS, i){
+          if(i == randomSummNumber){
+            return desiredSS
+          }
+        })
+       
+        console.log("Summoner Spells :", summsName)
+      }
        // var SummonerInfo = [];
 
        // function saveM(champs){

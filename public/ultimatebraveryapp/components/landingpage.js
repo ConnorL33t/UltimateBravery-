@@ -44,8 +44,10 @@
                 $state.go('quickmatch')
 
             }
-            $ctrl.findMatchGame = function (champ, index) {
+            $ctrl.findMatchGame = function (champ, index, masteries,summonerSpells) {
                 SummonerService.getRandChampion($ctrl.user);
+                SummonerService.getRandMastery($ctrl.masteries)
+                SummonerService.getRandSumms($ctrl.summonerSpells)
                 SocketService.joinRoom('queue')
                 $state.go('queue')
 
@@ -57,7 +59,7 @@
                 if (on != true) {
                     $ctrl.champBtn = "Select All Champions"
                 } else {
-                    $ctrl.champBtn = "Un-Select All Champions"
+                    $ctrl.champBtn = "Unselect All Champions"
                 }
                 for (var ch in $ctrl.champArray) {
                     var champ = $ctrl.champArray[ch]
