@@ -38,7 +38,21 @@
 }
 
  .find-button{
--webkit-border-radius: 0;
+
+
+
+   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Georgia;
+  color: rgba(236,240,241, 1);
+  font-size: 31px;
+  background: rgba(41,128,185, .7);
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  
+/*-webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
   font-family: Georgia;
@@ -47,7 +61,7 @@
   background: rgba(41,128,185, .4);
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  border: none;
+  border: none;*/
 }
 
 .summoner-form{
