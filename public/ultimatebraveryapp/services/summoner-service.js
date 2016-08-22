@@ -16,7 +16,7 @@
      
 
        ss.getRandChampion = function(champ, LeagueService){
-  debugger
+ 
 
 
            // GETS random champ number from the list of owned champs for that user
