@@ -10,6 +10,8 @@
     -  Give each players a random build and a position
     -  Give one player jungler position with smite & jungle item the rest get random summ/build
     -  Create a "Just give me a fucking build so i can play" state
+    - Before deployment need to add all new summoner icons back to our list!!!!
+    - 
 
 
 ## Not so Needed but awesome ideas(add cool ideas for css/functions that would make our app that much better)
