@@ -53,6 +53,7 @@ html{
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border: none;
+  
 }
 
 .button-col{
@@ -93,15 +94,13 @@ html{
 }
 
 .select-champs-btn{
-    background: #E74C3C;
-  background-image: -webkit-linear-gradient(top, #E74C3C, #D94738);
-  background-image: -moz-linear-gradient(top, #E74C3C, #D94738);
-  background-image: -ms-linear-gradient(top, #E74C3C, #D94738);
-  background-image: -o-linear-gradient(top, #E74C3C, #D94738);
-  background-image: linear-gradient(to bottom, #E74C3C, #D94738);
-  font-family: Arial;
-  color: #E3E7E8;
-  font-size: 12px;
+   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Georgia;
+  color: rgba(236,240,241, 1);
+  font-size: 31px;
+  background: rgba(41,128,185, .7);
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border: none;
