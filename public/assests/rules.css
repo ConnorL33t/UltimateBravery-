@@ -4,7 +4,7 @@
 }
 
 .rules-header{
-  color: rgba(231,76, 60, 1);
+  color: #1695A3;
   font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
   font-weight: bold;
   font-size: 600%;
@@ -17,7 +17,7 @@
 }
 .big-ol-numba{
     font-size: 300%;
-    color: blue;
+    color: #8E2800
 }
 
 .rule-background{
@@ -27,6 +27,16 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
+}
+
+.main-rules{
+    color: #BD8D46
+
+}
+
+.rules-def{
+    color: #BD8D46
 
 }
 
