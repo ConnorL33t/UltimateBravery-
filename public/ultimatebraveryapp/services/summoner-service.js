@@ -36,7 +36,7 @@
             console.log("You have been assigned", randChamp)
        
        }
-      ss.getRand 
+      
       ss.getRandMastery = function (keystone, LeagueService){
   
        let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
