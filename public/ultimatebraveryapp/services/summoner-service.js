@@ -58,8 +58,8 @@
             return desiredSS
           }
         })
-       
-        console.log("Summoner Spells :", summsName)
+       debugger
+        console.log("Summoner Spells :", desiredSS[summsName])
       }
        // var SummonerInfo = [];
 
