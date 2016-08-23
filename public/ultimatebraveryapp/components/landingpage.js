@@ -39,6 +39,8 @@
                 $state.go('rules')
             }
             $ctrl.toggleChamp = function (champ) {
+
+                // Used to select owned champions on second state, also adds property owned to the champs object when clicked ON
                 if ($ctrl.user.champs[champ.name] && $ctrl.user.champs[champ.name].owned) {
                     $ctrl.user.champs[champ.name].owned = false;
                 } else {
@@ -51,6 +53,8 @@
 
             }
             $ctrl.findMatchGame = function (champ, index, masteries,summonerSpells,items) {
+                // These calls our random functions located within our summoner service
+                // TODO:: obscure our rand function to do all randomization besides items, items are to complicated to not have its onw function.
                 SummonerService.getRandChampion($ctrl.user);
                 SummonerService.getRandBuild($ctrl.items)
                 SummonerService.getRandMastery($ctrl.masteries)
@@ -62,6 +66,7 @@
             $ctrl.champBtn = "Select All Champions"
             var on = false
             $ctrl.toggleAllChamps = function () {
+                // Used change the name of the select button depending on what the owned statues being true or false
                 on = !on
                 if (on != true) {
                     $ctrl.champBtn = "Select All Champions"
