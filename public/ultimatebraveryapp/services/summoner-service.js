@@ -100,37 +100,41 @@
          var isSupportItem = false;
          var isBoots = false; 
          while (build.length < 6) {
-           var randNumb = Math.floor(Math.random() * Object.keys(items).length)
-           if(itemsArray[randNumb].group ==="BootsUpgrades" && isBoots === false) {
-             build.push(itemsArray[randNumb])
+           var randNumb = Math.floor(Math.random() * itemsArray.length)
+           var randItem = items[itemsArray[randNumb]]
+           if(randItem.group === true){
+           if(randItem.group ==="BootsUpgrades" && isBoots === false) {
+             build.push(randItem)
              isBoots = true; 
-           }        
-           if (itemsArray[randNumb].group === "JungleItems" && isJungleItem === false) {
-             build.push(itemsArray[randNumb])
+
+           if (randItem.group === "JungleItems" && isJungleItem === false) {
+             build.push(randItem)
              isJungleItem = true;
              
-           } else
-             if (itemsArray[randNumb].group === "GoldBase" && isSupportItem === false) {
-               build.push(itemsArray[randNumb])
+           }if (randItem.group === "GoldBase" && isSupportItem === false) {
+               build.push(randItem)
                isSupportItem = true;
+             }
 
 
 
 
              }
-             else if (itemsArray[randNumb].group != "BootsUpgrades") {
-               build.push(itemsArray[randNumb])
-             }
-         }
+           }else{
+              build.push(randItem)
 
+
+           }           }
          console.log(build)
-
+         }
+         
        }
 
 
 
 
 
-   }
+
+   
 
 } ());
