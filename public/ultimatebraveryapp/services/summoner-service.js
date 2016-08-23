@@ -31,9 +31,9 @@
            var ChampList = JSON.parse(localStorage.getItem("champs"));   
            var randChamp = ChampList[champName]
            var randomSpells = randChamp.spells[Math.floor(Math.random() * randChamp.spells.length)]  
-           console.log("actual list of spells", randChamp.spells)
-            console.log("Yo spells", randomSpells)
-            console.log("You have been assigned", randChamp)
+//            console.log("actual list of spells", randChamp.spells)
+//             console.log("Yo spells", randomSpells)
+//             console.log("You have been assigned", randChamp)
        
        }
       ss.getRand 
@@ -49,7 +49,7 @@
 
         var KeystoneList = JSON.parse(localStorage.getItem("keystone"));   
         var randKeystone = KeystoneList[keystoneName]
-        console.log("Keystone", randKeystone)
+        // console.log("Keystone", randKeystone)
       }
 
       ss.getRandSumms = function (desiredSS, LeagueService){

@@ -15,12 +15,18 @@
         }
         $ctrl.$onInit = function () {
             SummonerService.getSummonersChamps($state.params.summoner, function (champMastery) {
-                console.log(champMastery)
+                // console.log(champMastery)
             })
+
+
+
+                    // Returns user to homepage if not a real summoner profileicon
+
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
-                console.log(summoner)
+                // console.log(summoner)
                 if (summoner.status) {
                     return $state.go('login');
+                    // TODO: Make this not even let the person past the first page if not a real summoner
                 }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;

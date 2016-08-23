@@ -208,10 +208,10 @@
         }
         saveMasterItemList(items)
         cb(items)
-        console.log(items)
-        console.log('Jungle Items: ',jungleItems)
-        console.log('Support items: ', supportItems)
-        console.log('boots: ', boots)
+        // console.log(items)
+        // console.log('Jungle Items: ',jungleItems)
+        // console.log('Support items: ', supportItems)
+        // console.log('boots: ', boots)
         
       });
     }
@@ -233,7 +233,7 @@
         }
         saveMasteriesList(masteries)
         cb(masteries)
-        console.log(masteries)
+        // console.log(masteries)
       });
     }
 
@@ -254,7 +254,7 @@
         }
         saveMasteriesList(summonerSpells)
         cb(summonerSpells)
-        console.log(summonerSpells)
+        // console.log(summonerSpells)
       });
     }
   }
