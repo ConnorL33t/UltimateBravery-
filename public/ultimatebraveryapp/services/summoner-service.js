@@ -16,35 +16,14 @@
      
 
        ss.getRandChampion = function(champ, LeagueService){
-<<<<<<< HEAD
-  debugger
 
-        
-  
- 
-
-
-           // GETS random champ number from the list of owned champs for that user
-       
-            let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
-            
-
-
-=======
  
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
->>>>>>> 19e9796514a2e12287f831e745c35dc9c954a664
             console.log(randomChampNumber)
            var champName = Object.keys(champ.champs).find(function(champ, i){
-<<<<<<< HEAD
-            
-           
-               if(i == randomChampNumber){
 
-                   
-=======
                if(i == randomChampNumber){ 
->>>>>>> 19e9796514a2e12287f831e745c35dc9c954a664
+
                    return champ;
                }
            })
@@ -76,13 +55,13 @@
       ss.getRandSumms = function (desiredSS, LeagueService){
         let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
         console.log(randomSummNumber)
-        debugger
+        
         var summsName = Object.keys(desiredSS).find(function(desiredSS, i){
           if(i == randomSummNumber){
             return desiredSS
           }
         })
-       debugger
+      
         console.log("Summoner Spells :", desiredSS[summsName])
       }
        // var SummonerInfo = [];
