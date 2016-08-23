@@ -62,15 +62,15 @@
     }
 
     mirrorProps(desiredSummonerSpells,[
-      'SummonerBarrier',
-      'SummonerBoost',
-      'SummonerDot',
-      'SummonerExhaust',
-      'SummonerFlash',
-      'SummonerHaste',
-      'SummonerHeal',
-      'SummonerSmite',
-      'SummonerTeleport'
+      "SummonerBarrier",
+      "SummonerBoost",
+      "SummonerDot",
+      "SummonerExhaust",
+      "SummonerFlash",
+      "SummonerHaste",
+      "SummonerHeal",
+      "SummonerSmite",
+      "SummonerTeleport"
     ])
 
     let desiredMastery = {
