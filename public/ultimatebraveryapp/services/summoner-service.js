@@ -58,6 +58,7 @@
           if(i == randomSummNumber){
             return desiredSS
           }
+          
         })
        
         console.log("Summoner Spells :", desiredSS[summsName])
