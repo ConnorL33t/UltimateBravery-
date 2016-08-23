@@ -60,7 +60,7 @@
           }
         })
        
-        console.log("Summoner Spells :", summsName)
+        console.log("Summoner Spells :", desiredSS[summsName])
       }
 
        ss.summoner = ''
