@@ -50,9 +50,9 @@
                 $state.go('quickmatch')
 
             }
-            $ctrl.findMatchGame = function (champ, index, masteries,summonerSpells) {
+            $ctrl.findMatchGame = function (champ, index, masteries,summonerSpells,items) {
                 SummonerService.getRandChampion($ctrl.user);
-                SummonerService.getRandItems()
+                SummonerService.getRandBuild($ctrl.items)
                 SummonerService.getRandMastery($ctrl.masteries)
                 SummonerService.getRandSumms($ctrl.summonerSpells)
                 SocketService.joinRoom('queue')

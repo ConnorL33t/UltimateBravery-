@@ -16,14 +16,11 @@
      
 
        ss.getRandChampion = function(champ, LeagueService){
-
  
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
             console.log(randomChampNumber)
            var champName = Object.keys(champ.champs).find(function(champ, i){
-
                if(i == randomChampNumber){ 
-
                    return champ;
                }
            })
@@ -36,21 +33,21 @@
 //             console.log("You have been assigned", randChamp)
        
        }
-      ss.getRand 
-      ss.getRandMastery = function (keystone, LeagueService){
-  
-       let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
-       console.log(randomKeystoneNumber)
-        var keystoneName = Object.keys(keystone).find(function(keystone, i){
-          if( i == randomKeystoneNumber){
-            return keystone
-          }
-        })
 
-        var KeystoneList = JSON.parse(localStorage.getItem("keystone"));   
-        var randKeystone = KeystoneList[keystoneName]
-        // console.log("Keystone", randKeystone)
-      }
+//       ss.getRandMastery = function (keystone, LeagueService){
+//        let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
+//        console.log(randomKeystoneNumber)
+//         var keystoneName = Object.keys(keystone).find(function(keystone, i){
+//           if( i == randomKeystoneNumber){
+//             return keystone
+//           }
+//         })
+
+//         var KeystoneList = JSON.parse(localStorage.getItem("keystone"));   
+//         var randKeystone = KeystoneList[keystoneName]
+//         console.log("Keystone", randKeystone)
+//       }
+
 
       ss.getRandSumms = function (desiredSS, LeagueService){
         let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
@@ -61,14 +58,10 @@
             return desiredSS
           }
         })
-      
-        console.log("Summoner Spells :", desiredSS[summsName])
+       
+        console.log("Summoner Spells :", summsName)
       }
-       // var SummonerInfo = [];
 
-       // function saveM(champs){
-       //     localStorage.setItem('champs', JSON.stringify(champs))
-       // }
        ss.summoner = ''
        ss.getSummonerProfile = function (summoner, cb) {
            if (!summoner) { return }
@@ -97,18 +90,46 @@
        }
 
 
-          ss.getRandItems = function(LeagueService, jungleItems, supportItems, boots, otheritems){
-            
-
-            debugger
 
 
+       ss.getRandBuild = function (items, LeagueService) {
+         var build = []
+         var itemsArray = Object.keys(items)
+         var isJungleItem = false;
+         var isSupportItem = false;
+         var isBoots = false; 
+         while (build.length < 6) {
+           var randNumb = Math.floor(Math.random() * Object.keys(items).length)
+           if(itemsArray[randNumb].group ==="BootsUpgrades" && isBoots === false) {
+             build.push(itemsArray[randNumb])
+             isBoots = true; 
+           }        
+           if (itemsArray[randNumb].group === "JungleItems" && isJungleItem === false) {
+             build.push(itemsArray[randNumb])
+             isJungleItem = true;
+             
+           } else
+             if (itemsArray[randNumb].group === "GoldBase" && isSupportItem === false) {
+               build.push(itemsArray[randNumb])
+               isSupportItem = true;
 
-          }
+
+
+
+             }
+             else if (itemsArray[randNumb].group != "BootsUpgrades") {
+               build.push(itemsArray[randNumb])
+             }
+         }
+
+         console.log(build)
+
+       }
 
 
 
 
-           }
-   
+
+   }
+
 } ());
