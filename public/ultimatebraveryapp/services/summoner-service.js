@@ -51,7 +51,7 @@
 
       ss.getRandSumms = function (desiredSS, LeagueService){
         let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
-        console.log(randomSummNumber)
+        // console.log(randomSummNumber)
         
         var summsName = Object.keys(desiredSS).find(function(desiredSS, i){
           if(i == randomSummNumber){
@@ -133,3 +133,9 @@
    }
 
 } ());
+
+
+for (var index = 0; index < array.length; index++) {
+  var element = array[index];
+  
+}
