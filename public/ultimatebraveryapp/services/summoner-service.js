@@ -16,12 +16,17 @@
      
 
        ss.getRandChampion = function(champ, LeagueService){
+  debugger
+
+        
+  
  
 
 
            // GETS random champ number from the list of owned champs for that user
        
             let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
+            
 
 
             console.log(randomChampNumber)
@@ -29,6 +34,7 @@
             // Finds that champ by matching randomChampNumber to our object of owned champs
 
            var champName = Object.keys(champ.champs).find(function(champ, i){
+            
            
                if(i == randomChampNumber){
 
@@ -81,6 +87,19 @@
            })
            })
        }
+
+
+          ss.getRandItems = function(LeagueService, jungleItems, supportItems, boots, otheritems){
+            
+
+            debugger
+
+
+
+          }
+
+
+
 
            }
    

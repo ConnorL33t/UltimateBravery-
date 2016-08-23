@@ -46,6 +46,7 @@
             }
             $ctrl.findMatchGame = function (champ, index) {
                 SummonerService.getRandChampion($ctrl.user);
+                SummonerService.getRandItems()
                 SocketService.joinRoom('queue')
                 $state.go('queue')
 
