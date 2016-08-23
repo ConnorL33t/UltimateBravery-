@@ -17,7 +17,7 @@ html{
 
 
 .choose-champ{
-  color: rgba(236,240,241, 1);
+  color: rgba(218,237,226, 1);
   font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
   font-weight: bold;
   font-size: 600%;
@@ -48,7 +48,7 @@ html{
   -moz-border-radius: 0;
   border-radius: 0px;
   font-family: Georgia;
-  color: rgba(236,240,241, 1);
+  color: rgba(218,237,226, 1);
   font-size: 31px;
   background: rgba(41,128,185, .7);
   padding: 10px 20px 10px 20px;
@@ -103,7 +103,7 @@ html{
   -moz-border-radius: 0;
   border-radius: 0px;
   font-family: Georgia;
-  color: rgba(236,240,241, 1);
+  color: rgba(218,237,226, 1);
   font-size: 31px;
   background: rgba(41,128,185, .7);
   padding: 10px 20px 10px 20px;

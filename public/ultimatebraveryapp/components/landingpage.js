@@ -25,8 +25,9 @@
             SummonerService.getSummonerProfile($state.params.summoner, function (summoner) {
                 // console.log(summoner)
                 if (summoner.status) {
+                    var wrongSummonerNameError = "You need to enter your real Summoner Name to continue"
                     return $state.go('login');
-                    // TODO: Make this not even let the person past the first page if not a real summoner
+                    // TODO: Make this not even let the person past the first page if not a real summoner and give them a error message
                 }
                 var cleanSummonerName = $state.params.summoner.split(' ').join('').trim().toLowerCase()
                 $ctrl.user.summoner = summoner[cleanSummonerName] ? summoner[cleanSummonerName].name : $state.params.summoner;
