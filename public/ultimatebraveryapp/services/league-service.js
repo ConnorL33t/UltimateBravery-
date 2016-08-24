@@ -222,18 +222,19 @@
         url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/mastery?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57'
       }).then(function (response) {
         var masteries = response.data.data;
-        for (var keystone in masteries) {
+
+        for (var desiredKS in masteries) {
           
-          if(desiredMastery[keystone]){
-            masteries[keystone].img = `/image/lolimages/img/mastery/${keystone}.png` 
+          if(desiredMastery[desiredKS]){
+            masteries[desiredKS].img = `/image/lolimages/img/mastery/${desiredKS}.png` 
           }else{
-            delete masteries[keystone]
+            delete masteries[desiredKS]
           }
           
         }
         saveMasteriesList(masteries)
+
         cb(masteries)
-        // console.log(masteries)
       });
     }
 
