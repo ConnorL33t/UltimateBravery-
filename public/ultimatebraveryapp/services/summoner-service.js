@@ -35,36 +35,33 @@
     }
 
 
-     ss.getRandMastery = function (keystone, LeagueService) {
-    //   // let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
-    //   // console.log(randomKeystoneNumber)
-    //   // var keystoneName = Object.keys(keystone).find(function (keystone, i) {
-    //   //   if (i == randomKeystoneNumber) {
-    //   //     return keystone
-    //   //   }
-      
-    //  console.log(keystone)
-    //   }
-    // //   var KeystoneList = JSON.parse(localStorage.getItem("keystone"));
-    // //   var randKeystone = KeystoneList[keystoneName]
-    // //   console.log("Keystone", randKeystone)
-   }
+ss.getRandMastery = function (keystone, LeagueService){
+       let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
+       console.log(randomKeystoneNumber)
+        var keystoneName = Object.keys(keystone).find(function(keystone, i){
+          if( i == randomKeystoneNumber){
+            return keystone
+          }
+        })
+
+        var KeystoneList = JSON.parse(localStorage.getItem("keystone"));   
+        var randKeystone = KeystoneList[keystoneName]
+        console.log("Keystone", randKeystone)
+      }
+
 
 
     ss.getRandSumms = function (desiredSS, LeagueService) {
       let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
-      // console.log(randomSummNumber)
-
-      var summsName = Object.keys(desiredSS).find(function (desiredSS, i) {
+      var summs1 = Object.keys(desiredSS).find(function (desiredSS, i) {
         if (i == randomSummNumber) {
           return desiredSS
         }
-
+ 
       })
 
-      console.log("Summoner Spells :", desiredSS[summsName])
+      console.log("Summoner Spells :", desiredSS[summs1])
     }
-
     ss.summoner = ''
     ss.getSummonerProfile = function (summoner, cb) {
       if (!summoner) { return }
