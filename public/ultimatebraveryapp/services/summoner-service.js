@@ -35,7 +35,7 @@
     }
 
 
-    // ss.getRandMastery = function (keystone, LeagueService) {
+     ss.getRandMastery = function (keystone, LeagueService) {
     //   // let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
     //   // console.log(randomKeystoneNumber)
     //   // var keystoneName = Object.keys(keystone).find(function (keystone, i) {
@@ -48,7 +48,7 @@
     // //   var KeystoneList = JSON.parse(localStorage.getItem("keystone"));
     // //   var randKeystone = KeystoneList[keystoneName]
     // //   console.log("Keystone", randKeystone)
-    // // }
+   }
 
 
     ss.getRandSumms = function (desiredSS, LeagueService) {
