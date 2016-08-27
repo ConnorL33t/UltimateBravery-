@@ -35,19 +35,19 @@
     }
 
 
-ss.getRandMastery = function (keystone, LeagueService){
-       let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
-       console.log(randomKeystoneNumber)
-        var keystoneName = Object.keys(keystone).find(function(keystone, i){
-          if( i == randomKeystoneNumber){
-            return keystone
-          }
-        })
+    ss.getRandMastery = function (keystone, LeagueService) {
+      let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
+      console.log(randomKeystoneNumber)
+      var keystoneName = Object.keys(keystone).find(function (keystone, i) {
+        if (i == randomKeystoneNumber) {
+          return keystone
+        }
+      })
 
-        var KeystoneList = JSON.parse(localStorage.getItem("keystone"));   
-        var randKeystone = KeystoneList[keystoneName]
-        console.log("Keystone", randKeystone)
-      }
+      var KeystoneList = JSON.parse(localStorage.getItem("keystone"));
+      var randKeystone = KeystoneList[keystoneName]
+      console.log("Keystone", randKeystone)
+    }
 
 
 
@@ -57,7 +57,7 @@ ss.getRandMastery = function (keystone, LeagueService){
         if (i == randomSummNumber) {
           return desiredSS
         }
- 
+
       })
 
       console.log("Summoner Spells :", desiredSS[summs1])
@@ -97,10 +97,10 @@ ss.getRandMastery = function (keystone, LeagueService){
       var itemsArray = Object.keys(items)
       var isJungleItem = false;
       var isSupportItem = false;
-    
+
       var bootsArray = []
       for (var prop in items) {
-        if (items[prop].group === "BootsUpgrades"){
+        if (items[prop].group === "BootsUpgrades") {
           bootsArray.push(items[prop])
         }
       }
@@ -110,13 +110,13 @@ ss.getRandMastery = function (keystone, LeagueService){
         var randNumb = Math.floor(Math.random() * itemsArray.length)
         var randItem = items[itemsArray[randNumb]]
         if (!!randItem.group) {
-            if (randItem.group === "JungleItems" && isJungleItem === false) {
-              isJungleItem = true;
-              build.push(randItem)
-            } if (randItem.group === "GoldBase" && isSupportItem === false) {
-              isSupportItem = true;
-              build.push(randItem)
-            }          
+          if (randItem.group === "JungleItems" && isJungleItem === false) {
+            isJungleItem = true;
+            build.push(randItem)
+          } if (randItem.group === "GoldBase" && isSupportItem === false) {
+            isSupportItem = true;
+            build.push(randItem)
+          }
         } else {
           build.push(randItem)
         }
@@ -127,3 +127,4 @@ ss.getRandMastery = function (keystone, LeagueService){
 } ());
 
 
+ 
