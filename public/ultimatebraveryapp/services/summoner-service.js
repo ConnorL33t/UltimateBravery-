@@ -56,12 +56,24 @@
       var summs1 = Object.keys(desiredSS).find(function (desiredSS, i) {
         if (i == randomSummNumber) {
           return desiredSS
-        }
-
+        }  
       })
-
-      console.log("Summoner Spells :", desiredSS[summs1])
+    ss.getRandSumms2 = function (desiredSS, LeagueService) {
+      let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
+      var summs2 = Object.keys(desiredSS).find(function (desiredSS, i) {
+        if (i == randomSummNumber) {
+          return desiredSS
+        }  
+      })
+      if(summs1 == summs2){
+        ss.getRandSumms()
+      }
+      console.log("Summoner Spells 2:", desiredSS[summs2])
+      console.log("Summoner Spell 1 :", desiredSS[summs1])
+     }
     }
+
+
     ss.summoner = ''
     ss.getSummonerProfile = function (summoner, cb) {
       if (!summoner) { return }

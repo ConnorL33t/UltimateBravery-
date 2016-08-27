@@ -60,6 +60,7 @@
                 SummonerService.getRandBuild($ctrl.items)
                 SummonerService.getRandMastery($ctrl.masteries)
                 SummonerService.getRandSumms($ctrl.summonerSpells)
+                SummonerService.getRandSumms2($ctrl.summonerSpells)
                 SocketService.joinRoom('queue')
                 $state.go('queue')
 
