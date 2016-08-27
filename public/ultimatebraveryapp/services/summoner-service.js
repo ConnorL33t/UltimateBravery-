@@ -28,8 +28,7 @@
       var ChampList = JSON.parse(localStorage.getItem("champs"));
       var randChamp = ChampList[champName]
       var randomSpells = randChamp.spells[Math.floor(Math.random() * randChamp.spells.length)]
-      console.log("actual list of spells", randChamp.spells)
-      console.log("Yo spells", randomSpells)
+      console.log("Yo spell", randomSpells)
       console.log("You have been assigned", randChamp)
 
     }
@@ -68,7 +67,7 @@
       if(summs1 == summs2){
         ss.getRandSumms()
       }
-      console.log("Summoner Spells 2:", desiredSS[summs2])
+      console.log("Summoner Spell 2:", desiredSS[summs2])
       console.log("Summoner Spell 1 :", desiredSS[summs1])
      }
     }
