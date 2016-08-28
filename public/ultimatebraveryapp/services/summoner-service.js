@@ -35,43 +35,42 @@
 
 
     ss.getRandMastery = function (keystone, LeagueService) {
-      let randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
-      console.log(randomKeystoneNumber)
-      var keystoneName = Object.keys(keystone).find(function (keystone, i) {
-        if (i == randomKeystoneNumber) {
-          return keystone
-        }
-      })
-
-      var KeystoneList = JSON.parse(localStorage.getItem("keystone"));
-      var randKeystone = KeystoneList[keystoneName]
+      //Select eystone into an array
+      var keystoneList = Object.keys(keystone)
+      //Get a random key id 
+      var randomKeystoneNumber = Math.floor(Math.random() * Object.keys(keystone).length)
+   
+      var keystoneNum = keystoneList[randomKeystoneNumber]
+      // Store random keystone
+      var randKeystone = keystone[keystoneNum]
       console.log("Keystone", randKeystone)
     }
 
-
-
     ss.getRandSumms = function (desiredSS, LeagueService) {
-      let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
-      var summs1 = Object.keys(desiredSS).find(function (desiredSS, i) {
-        if (i == randomSummNumber) {
-          return desiredSS
-        }  
-      })
-    ss.getRandSumms2 = function (desiredSS, LeagueService) {
-      let randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
-      var summs2 = Object.keys(desiredSS).find(function (desiredSS, i) {
-        if (i == randomSummNumber) {
-          return desiredSS
-        }  
-      })
-      if(summs1 == summs2){
-        ss.getRandSumms()
+      getRandomSummoners = function () {
+        var randomSummNumber = Math.floor(Math.random() * Object.keys(desiredSS).length)
+        var summs = Object.keys(desiredSS).find(function (desiredSS, i) {
+          if (i == randomSummNumber) {
+            return desiredSS
+          }
+        })
+        return desiredSS[summs]
       }
-      console.log("Summoner Spell 2:", desiredSS[summs2])
-      console.log("Summoner Spell 1 :", desiredSS[summs1])
-     }
-    }
 
+      summonerSpells = {
+
+      }
+      var summ1 = getRandomSummoners();
+      summonerSpells.summ1 = summ1
+      for (; !summonerSpells.summ2;) {
+        var summ2 = getRandomSummoners();
+        if (summ1 != summ2) {
+          summonerSpells.summ2 = summ2
+
+        }
+      }
+      console.log(summonerSpells)
+    }
 
     ss.summoner = ''
     ss.getSummonerProfile = function (summoner, cb) {
