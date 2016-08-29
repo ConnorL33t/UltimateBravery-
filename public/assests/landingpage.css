@@ -103,7 +103,7 @@ html{
   border-radius: 0px;
   font-family: Georgia;
   color: rgba(218,237,226, 1);
-  font-size: 31px;
+  font-size: 15px;
   background: rgba(41,128,185, .7);
   padding: 10px 20px 10px 20px;
   text-decoration: none;
@@ -138,10 +138,12 @@ html{
     text-align: center;
     color: rgba(218,237,226, 1);
     
+    
 }
 
 .play-button{
     text-align: center;
+   
         
 }
 
@@ -154,5 +156,7 @@ html{
 .navbar{
     background-color: #131429;
     border: none;
+   background: rgba(50, 50, 168, 0);
+   padding-top: 50px;
 }
 
