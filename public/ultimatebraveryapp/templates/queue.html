@@ -5,8 +5,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-offset-4 col-xs-4">
-        <div class="randomized">
-          {{$ctrl.client}}
+        <div class="randomized-queue">
+          <div ng-repeat="summoner in $ctrl.summoners track by $index">
+            {{summoner.name}}
+            <div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

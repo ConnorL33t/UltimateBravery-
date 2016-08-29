@@ -149,7 +149,7 @@ function leaveRoom(socketId) {
 function assignGame(){
 	let game = games.queing[0] || new Game();
 	let players = actualRooms.queue.summoners; 
-	var player = players.shift();
+	let player = players.shift();
 
 	if(Object.keys(game.summoners).length > 10){
 		game = new Game();

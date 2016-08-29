@@ -83,7 +83,13 @@ html{
 
 .summoner-name{
 
+<<<<<<< HEAD
   color: rgba(218,237,226, 1);
+=======
+
+  color: #FFFFFF;
+
+>>>>>>> f7b39ae53ee1f1bf9c13e8008f34dc2fcca5bc85
 
   font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
   font-weight: bold;
