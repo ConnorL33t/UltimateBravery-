@@ -1,8 +1,32 @@
 <link rel="stylesheet" href="assests/landingpage.css">
 
-<div class="main-background container-fluid animated slideOutDown slideInDown">
-    <!--SUMMONER PROFILE-->
 
+<div class="main-info container-fluid">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4 main-title">
+                    <h1>Ulitmate Bravery</h1>
+                </div>
+                <div class="col-xs-4 play-button">
+                    <button type="button" class="lbtn" ng-click="$ctrl.findMatchGame()">Queue</button> </br>
+                    <p class="room-num">Active Room: {{$ctrl.client.room.room}}</p> </br>
+                    <p class="room-num">Online Summoners: {{$ctrl.client.room.summoners.length}}</p>
+                </div>
+                <div class="col-xs-4 summoner-info">
+                <h1 class="summoner-name">{{$ctrl.user.summoner}}</h1> </br>
+                <img class="summoner-icon" ng-src="{{$ctrl.user.profileIcon}}" />
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-background container-fluid">
+    </br>
+    <!--SUMMONER PROFILE-->
+<!--
     <div class="row">
         <div class="summoner-col col-xs-12">
             <div class="summoner-row">
@@ -13,22 +37,22 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!--CONTAINER FOR PROFILE ICON-->
 
-    <div class="row">
+    <!--<div class="row">
         <div class="col-xs-12">
             <div class="text-center">
                 <img class="summoner-icon" ng-src="{{$ctrl.user.profileIcon}}" />
             </div>
         </div>
-    </div>
-  
+    </div>-->
+
 
     <!--CONTAINER FOR FIND MATCH BUTTON-->
 
-    <div class="row">
+    <!--<div class="row">
         <div class="button-col col-xs-4">
             <button type="button" class="lbtn" ng-click="$ctrl.findMatchGame()">Queue</button>
         </div>
@@ -38,7 +62,7 @@
         <div class="button-col col-xs-4">
             <button type="button" class="lbtn" ng-click="$ctrl.quickmatch()">SoloPlay</button>
         </div>
-    </div>
+    </div>-->
 
     <!--CONTAINER FOR CHAMPION ICONS AND BUTTONS-->
 
@@ -72,6 +96,3 @@
     <p>Active Room: {{$ctrl.client.room.room}}</p>
     <p>Online Summoners: {{$ctrl.client.room.summoners.length}}</p>
 </div>
-
-
-

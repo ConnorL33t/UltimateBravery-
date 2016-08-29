@@ -55,15 +55,13 @@ html{
   text-decoration: none;
   border: none;
   margin-bottom: 15px;
+  display: inline-block;
+  text-align: center;
     
   
 }
 
-.button-col{
-    text-align: center;
-    margin-top: 20px;
-    
-}
+
 
 .summoner-col{
     text-align: center;
@@ -85,11 +83,12 @@ html{
 
 .summoner-name{
 
-  color: #DAEDE2;
+  color: rgba(218,237,226, 1);
 
   font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
   font-weight: bold;
-  font-size: 600%;
+
+  
 
 
 }
@@ -113,6 +112,47 @@ html{
 }
 
 .summoner-icon {
-    border-radius: 50%;
+    max-width: 60px;
+    max-height: 60px;
+    display: inline-block;
+}
+
+
+.main-title{
+    display: inline-block;
+    text-align: center;
+    color: rgba(218,237,226, 1);
+
+
+}
+
+.summoner-name{
+    display: inline-block;
+    text-align: center;
+    color: rgba(218,237,226, 1);
+
+}
+
+.room-num{
+    display: inline-block;
+    text-align: center;
+    color: rgba(218,237,226, 1);
+    
+}
+
+.play-button{
+    text-align: center;
+        
+}
+
+.summoner-info{
+    text-align: center;
+    color: rgba(218,237,226, 1);
+ 
+}
+
+.navbar{
+    background-color: #131429;
+    border: none;
 }
 
