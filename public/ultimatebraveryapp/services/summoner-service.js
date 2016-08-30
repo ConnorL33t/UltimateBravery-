@@ -16,18 +16,13 @@
 
 
     ss.getRandChampion = function (champ, LeagueService) {
-
-      let randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
-      console.log(randomChampNumber)
-      var champName = Object.keys(champ.champs).find(function (champ, i) {
-        if (i == randomChampNumber) {
-          return champ;
-        }
-      })
-
       var ChampList = JSON.parse(localStorage.getItem("champs"));
-      var randChamp = ChampList[champName]
-      var randomSpells = randChamp.spells[Math.floor(Math.random() * randChamp.spells.length)]
+      var randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
+      var champions = Object.keys(champ.champs)
+      var randChamp = champions[randomChampNumber]
+      var randomChampion = ChampList[randChamp]
+      console.log(randomChampion)
+      var randomSpells = randomChampion.spells[Math.floor(Math.random() * randomChampion.spells.length)]
       console.log("Yo spell", randomSpells)
       console.log("You have been assigned", randChamp)
 
