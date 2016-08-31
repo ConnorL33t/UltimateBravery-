@@ -12,20 +12,21 @@
 
 
     var ss = this;
-    ss.build = {}
+    ss.randomData = {
 
-
+    }
     ss.getRandChampion = function (champ, LeagueService) {
       var ChampList = JSON.parse(localStorage.getItem("champs"));
-      var randomChampNumber = Math.floor(Math.random() * Object.keys(champ.champs).length)
-      var champions = Object.keys(champ.champs)
+      var randomChampNumber = Math.floor(Math.random() * Object.keys(ChampList).length)
+      var champions = Object.keys(ChampList)
       var randChamp = champions[randomChampNumber]
       var randomChampion = ChampList[randChamp]
       console.log(randomChampion)
       var randomSpells = randomChampion.spells[Math.floor(Math.random() * randomChampion.spells.length)]
       console.log("Yo spell", randomSpells)
       console.log("You have been assigned", randChamp)
-
+      ss.randomData.champ = randChamp
+      ss.randomData.champ.spells = randomSpells
     }
 
 
@@ -39,6 +40,7 @@
       // Store random keystone
       var randKeystone = keystone[keystoneNum]
       console.log("Keystone", randKeystone)
+      ss.randomData.keystone = randKeystone
     }
 
     ss.getRandSumms = function (desiredSS, LeagueService) {
@@ -65,6 +67,7 @@
         }
       }
       console.log(summonerSpells)
+      ss.randomData.SS = summonerSpells
     }
 
     ss.summoner = ''
@@ -127,7 +130,11 @@
         }
       }
       console.log(build)
+      ss.randomData.build = build
     }
+    ss.getRandomData = function(){
+      return ss.randomData
+    }  
   }
 } ());
 
