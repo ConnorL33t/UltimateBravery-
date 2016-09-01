@@ -21,10 +21,9 @@
       var champions = Object.keys(ChampList)
       var randChamp = champions[randomChampNumber]
       var randomChampion = ChampList[randChamp]
-      console.log(randomChampion)
+
       var randomSpells = randomChampion.spells[Math.floor(Math.random() * randomChampion.spells.length)]
-      console.log("Yo spell", randomSpells)
-      console.log("You have been assigned", randChamp)
+
       ss.randomData.champ = randChamp
       ss.randomData.champ.spells = randomSpells
     }
@@ -39,7 +38,7 @@
       var keystoneNum = keystoneList[randomKeystoneNumber]
       // Store random keystone
       var randKeystone = keystone[keystoneNum]
-      console.log("Keystone", randKeystone)
+
       ss.randomData.keystone = randKeystone
     }
 
@@ -66,7 +65,7 @@
 
         }
       }
-      console.log(summonerSpells)
+
       ss.randomData.SS = summonerSpells
     }
 
@@ -129,7 +128,6 @@
           build.push(randItem)
         }
       }
-      console.log(build)
       ss.randomData.build = build
     }
     ss.getRandomData = function(){
