@@ -53,11 +53,11 @@
                 $state.go('quickmatch')
 
             }
-            $ctrl.findMatchGame = function (champ, index, masteries,summonerSpells,items) {
+            $ctrl.findMatchGame = function (champ, index, masteries,summonerSpells) {
                 // These calls our random functions located within our summoner service
                 // TODO:: obscure our rand function to do all randomization besides items, items are to complicated to not have its onw function.
                 SummonerService.getRandChampion($ctrl.user);
-                SummonerService.getRandBuild($ctrl.items)
+                // SummonerService.getRandBuild($ctrl.items)
                 SummonerService.getRandMastery($ctrl.masteries)
                 SummonerService.getRandSumms($ctrl.summonerSpells)
                 SocketService.joinRoom('queue')
