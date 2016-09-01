@@ -89,9 +89,6 @@
                 })
             })
 
-            LeagueService.getItems(function (items) {
-                $ctrl.items = items;
-            })
             LeagueService.getKeystone(function (masteries) {
                 $ctrl.masteries = masteries;
             })

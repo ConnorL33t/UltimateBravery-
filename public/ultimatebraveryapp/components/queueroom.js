@@ -8,13 +8,18 @@
 
 
 
-        QRController.$inject = ['$state', 'SocketService']
+        QRController.$inject = ['$state', 'SocketService', 'SummonerService', 'LeagueService']
 
 
 
 
-        function QRController($state, SocketService){
+        function QRController($state, SocketService, SummonerService, LeagueService){
             var qr = this;
+            
+            // LeagueService.getItems(function (items) {
+            //    qr.items = items;
+            // })
+            console.log(SummonerService.getRandomData())
             var socket = SocketService.getSocket();
             qr.client = SocketService.getClient();
             var queue = qr.client.room
@@ -27,6 +32,6 @@
                qr.summoners.push(client.summoner)
                 
             }
-            
+            console.log(qr.items)
         }
 }());
