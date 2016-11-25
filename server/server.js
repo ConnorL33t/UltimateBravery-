@@ -16,7 +16,7 @@ var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
 var users = new Users();
-var room = new Room();
+// var room = new Room();
 
 // serve
 app.use(express.static(publicPath));
@@ -28,14 +28,17 @@ io.on('connection', (socket) => {
 
 
 
-    socket.on('join', (params, callback) => {
+    socket.on('joinUsers', (params, callback) => {
         if (!isRealString(params.name) || !isRealString(params.room)) {
-           return callback('Name and room name are required.')
+         // todo make room optional
+           return callback('Name required / room if')
         }
 
         callback()
     })
-    
+    socket.on('queueUp', () => {
+        
+    })
     users.removeUser(socket.id);
 
     io.to().emit();
