@@ -19,6 +19,7 @@ class Game {
        
        this.summoner[clientData.id] = new Player(clientData); 
        var summoner = this.summoners[clientData.id]
+       summoner.getPlayersChampions();
        if(this.redTeam.length < this.blueTeam.length){
            this.redTeam.push(summoner.id);
            this.summoners.length === 10 ? gameIsFull() : this.full = false;
@@ -26,7 +27,6 @@ class Game {
            this.blueTeam.push(summoner.id);
            this.summoners.length ===  10 ? gameIsFull() : this.full = false; 
        }
-       summoner.getPlayersChampions();
        
     }
     gameIsFull(){
