@@ -15,31 +15,33 @@ const port = process.env.PORT || 3000;
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
+// initialize users and room container 
+
 var users = new Users();
-// var room = new Room();
+var rooms = new RoomContainer();
 
 // serve
+
 app.use(express.static(publicPath));
 
 // socket events
 
 io.on('connection', (socket) => {
     console.log('new user connected');
+    socket.on('join', (clientData, callback) => {
+    // add user to "global" user list (removed later when successfully added to a room)
+    var user = users.addUser(clientData.id);
+    // add user to an open or new game. 
+    var socketsGame = rooms.addUserToGame(clientData);
+    // TODO:: purge user from global user list 
 
+    
+ 
+    // this is supposed to tell user what room he is in for chat purposes.
+    // callback(`${users.users[clientData.id]} has successfully joined the lobby.`+ room.id);
+});
 
-
-    socket.on('joinUsers', (params, callback) => {
-        if (!isRealString(params.name) || !isRealString(params.room)) {
-         // todo make room optional
-           return callback('Name required / room if')
-        }
-
-        callback()
-    })
-    socket.on('queueUp', () => {
-        
-    })
-    users.removeUser(socket.id);
+    
 
     io.to().emit();
 
