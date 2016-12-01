@@ -1,5 +1,7 @@
+const {Player} = require('./player')
 class Game {
     constructor () {
+        id; // uuid 
         summoners = [];
         redTeam = [{
             assignedRoles,
@@ -15,29 +17,31 @@ class Game {
         full = false; 
     }
 
-    addSummoner (clientData) {
-       
-       this.summoner[clientData.id] = new Player(clientData); 
+    addSummoner () {
+       var user = this.summoners[id]
+       user = new Player();
+       user.getPlayersChampions(); 
        var summoner = this.summoners[clientData.id]
        summoner.getPlayersChampions();
        if(this.redTeam.length < this.blueTeam.length){
            this.redTeam.push(summoner.id);
+           summoner.team = this.redTeam; 
            this.summoners.length === 10 ? gameIsFull() : this.full = false;
        } else {
            this.blueTeam.push(summoner.id);
+           summoner.team = this.blueTeam;
            this.summoners.length ===  10 ? gameIsFull() : this.full = false; 
        }
+       return this.id 
        
     }
-    gameIsFull(){
+    gameIsFull () {
        this.full = true; 
-       this.summoners.forEach((summoner) => {
-          var team = summoner.getTeam();
-          var role = summoner.getRole(team);
-          var items = summoner.getItems(role);
-          var champion = summoner.getRandomChampion(assignedChampions);
-       }); 
-        
-
+       randomizeRedTeam(this.summoners);
     }
+    getPlayers () {
+        return this.summoners 
+    }
+
+        
 }

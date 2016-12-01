@@ -6,9 +6,10 @@ const socketIO = require('socket.io');
 
 
 // import modules
-const {Users} = require('./utils/users')
+const {Users} = require('./models/users')
 const {isRealString} = require('./utils/validation')
 const {generateMessage} = require('./utils/message')
+const {RoomContainer} = require('./models/roomcontainer')
 // set up server / sockets / path to front end
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3000;
@@ -30,28 +31,33 @@ io.on('connection', (socket) => {
     console.log('new user connected');
     socket.on('join', (clientData, callback) => {
     // add user to "global" user list (removed later when successfully added to a room)
-    var user = users.addUser(clientData.id);
+    users.removeUser(socket.id);
+    var user = users.addUser(socket.id);
     // add user to an open or new game. 
-    var socketsGame = rooms.addUserToGame(clientData);
-    // TODO:: purge user from global user list 
+    var gameId = rooms.addUserToGame(socket.id);
+
+    
+
+    socket.join(gameId);
+
+    io.to(gameId).emit('updateUsersList', rooms.getRoomsPlayers(gameId))
 
     
  
-    // this is supposed to tell user what room he is in for chat purposes.
-    // callback(`${users.users[clientData.id]} has successfully joined the lobby.`+ room.id);
+ 
 });
 
     
 
-    io.to().emit();
+    // io.to().emit();
 
-    socket.emit('newMessage', generateMessage('Admin', 'Welcome to Ultimate Bravery!'));
-    socket.broadcast.to(params.room).emit('newMessage', generateMessage('', `${params.name} has joined.`));
+    // socket.emit('newMessage', generateMessage('Admin', 'Welcome to Ultimate Bravery!'));
+    // socket.broadcast.to(params.room).emit('newMessage', generateMessage('', `${params.name} has joined.`));
 
-    socket.on('createMessage', (message, callback) => {
-        io.emit('newMessage', generateMessage(message.from, message.text));
-        callback('this is from the server.');
-    });
+    // socket.on('createMessage', (message, callback) => {
+    //     io.emit('newMessage', generateMessage(message.from, message.text));
+    //     callback('this is from the server.');
+    // });
 
     socket.on('disconnect', () => {
         console.log('client disconnected')

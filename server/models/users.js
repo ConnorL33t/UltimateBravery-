@@ -1,11 +1,10 @@
 
 class Users {
     constructor() {
-        this.users = [];
+        this.users = []
     }
 
     addUser({id}) {
-        user = id; 
         this.users.push(user)
         
         return user;
@@ -21,6 +20,7 @@ class Users {
     getUser(id) {
         return this.users.filter((user) => user.id === id)[0];
     }
+
 
 
 }
