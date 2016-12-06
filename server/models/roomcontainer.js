@@ -26,10 +26,5 @@ class RoomContainer {
         
         }
     }
-    getRoomsPlayers(roomId)
-    {
-        var game = this.games.filter( (game) => game.id = roomId ); 
-        return game.getPlayers(); 
-    }
 }
 module.exports = { RoomContainer };

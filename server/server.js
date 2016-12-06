@@ -30,19 +30,20 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
     console.log('new user connected');
     socket.on('join', (clientData, callback) => {
-    // add user to "global" user list (removed later when successfully added to a room)
-    users.removeUser(socket.id);
+        socket.emit('newMessage', generateMessage('Admin', 'Welcome to the lobby, when 10 players have joined, the randomization will begin.'))
+
+        // add user to "global" user list (removed later when successfully added to a room)
     var user = users.addUser(socket.id);
-    // add user to an open or new game. 
+    // add user to an open or new game.
     var currentGame = rooms.addUserToGame(socket.id);
     socket.join(currentGame.id);
+    io.to(gameId).emit('updateUsersList', currentGame.getRoomsPlayers());
+    users.removeUser(socket.id);
 
-    io.to(gameId).emit('updateUsersList', rooms.getRoomsPlayers(currentGame.id))
 
-    
- 
- 
-});
+
+
+    });
 
     
 
@@ -57,6 +58,7 @@ io.on('connection', (socket) => {
     // });
 
     socket.on('disconnect', () => {
+        users.removeUser(socket.id);
         console.log('client disconnected')
     });
 });

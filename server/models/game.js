@@ -32,15 +32,16 @@ class Game {
            summoner.team = this.blueTeam;
            this.summoners.length ===  10 ? gameIsFull() : this.full = false; 
        }
-       return(this.redTeam, this.blueTeam);
+       return;
        
     }
     gameIsFull () {
        this.full = true; 
-       randomizeRedTeam(this.summoners);
+       // randomizeRedTeam(this.summoners);
     }
     getPlayers () {
-        return this.summoners 
+        return (this.redTeam, this.blueTeam);
+
     }
 
         
