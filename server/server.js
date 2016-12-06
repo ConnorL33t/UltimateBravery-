@@ -35,11 +35,9 @@ io.on('connection', (socket) => {
     var user = users.addUser(socket.id);
     // add user to an open or new game. 
     var currentGame = rooms.addUserToGame(socket.id);
-    
+    socket.join(currentGame.id);
 
-    socket.join(gameId);
-
-    io.to(gameId).emit('updateUsersList', rooms.getRoomsPlayers(gameId))
+    io.to(gameId).emit('updateUsersList', rooms.getRoomsPlayers(currentGame.id))
 
     
  
