@@ -2,8 +2,9 @@ const {Game} = require('./game')
 
 class RoomContainer {
     constructor () {
-        games = [new Game()]
-    }     
+        this.games = [];
+
+    }
     addUserToGame(id){
         if(id) {
             for(i = 0; i < this.games.length; i++){
@@ -11,11 +12,12 @@ class RoomContainer {
                 if(currentGame.players.length === 10){
                     var newGame = new Game(); 
                     games.push(newGame);
-                    return newGame.addSummoner(id);
+                    newGame.addSummoner(id);
+                    return newGame;
                     
                 } else {
-                    return currentGame.addSummoner(id);
-                  
+                  currentGame.addSummoner(id);
+                  return currentGame;
                 }
             }
 
@@ -30,3 +32,4 @@ class RoomContainer {
         return game.getPlayers(); 
     }
 }
+module.exports = { RoomContainer };

@@ -1,20 +1,20 @@
 const {Player} = require('./player')
 class Game {
     constructor () {
-        id; // uuid 
-        summoners = [];
-        redTeam = [{
+        this.id;
+        this.summoners = [];
+        this.redTeam = [{
             assignedRoles,
             // summoners will be assigned when be assigned when randomization  is done. 
             summoners
         }];
-        blueTeam = [{
+        this.blueTeam = [{
             assignedRoles,
             summoners
         }];
-        assignedChampions = [];
+        this.assignedChampions = [];
         
-        full = false; 
+        this.full = false;
     }
 
     addSummoner () {
@@ -32,7 +32,7 @@ class Game {
            summoner.team = this.blueTeam;
            this.summoners.length ===  10 ? gameIsFull() : this.full = false; 
        }
-       return this.id 
+       return(this.redTeam, this.blueTeam);
        
     }
     gameIsFull () {
@@ -45,3 +45,4 @@ class Game {
 
         
 }
+module.exports = { Game }

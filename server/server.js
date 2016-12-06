@@ -6,10 +6,10 @@ const socketIO = require('socket.io');
 
 
 // import modules
-const {Users} = require('./models/users')
-const {isRealString} = require('./utils/validation')
-const {generateMessage} = require('./utils/message')
-const {RoomContainer} = require('./models/roomcontainer')
+const {Users} = require('./models/users');
+const {isRealString} = require('./utils/validation');
+const {generateMessage} = require('./utils/message');
+const {RoomContainer} = require('./models/roomcontainer');
 // set up server / sockets / path to front end
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3000;
@@ -34,8 +34,7 @@ io.on('connection', (socket) => {
     users.removeUser(socket.id);
     var user = users.addUser(socket.id);
     // add user to an open or new game. 
-    var gameId = rooms.addUserToGame(socket.id);
-
+    var currentGame = rooms.addUserToGame(socket.id);
     
 
     socket.join(gameId);

@@ -4,10 +4,10 @@ class Player {
     constructor ({id, name}) {
         this.id = id,
         this.name = name;
-        team; 
-        champion;
-        items; 
-        role; 
+        this.team;
+        this.champion;
+        this.items;
+        this.role;
 
     }
     getPlayersChampions () {
