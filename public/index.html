@@ -11,12 +11,22 @@
 <body class="centered-form">
     <div class="centered-form__">"
         <form action="/chat.html">
-        <div class="form-field"></div>
-        <div class="form-field"></div>
-        <div class="form-field"></div>
-        <div class="form-field"></div>
+            <div class="form-field"></div>
+            <div class="form-field"></div>
+            <div class="form-field"></div>
+            <div class="form-field"></div>
         </form>
     </div>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"> </script>
+    <script>
+    var socket = io();
+    socket.on('game', function(data){
+        console.log(data);
+    })
+    socket.emit('join', function(data){
+        data = 100;
+    });
+    </script>
 </body>
 
 </html>

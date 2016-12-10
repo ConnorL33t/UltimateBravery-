@@ -6,8 +6,9 @@ class RoomContainer {
 
     }
     addUserToGame(id){
-        if(id) {
-            for(i = 0; i < this.games.length; i++){
+        // if(id) {
+            if(this.games.length != 0){
+            for(var i = 0; i < this.games.length; i++){
                 var currentGame = this.games[i];
                 if(currentGame.players.length === 10){
                     var newGame = new Game(); 
@@ -21,10 +22,16 @@ class RoomContainer {
                 }
             }
 
-        }
-        else {
+            } else {
+                var newGame = new Game();
+                this.games.push(newGame);
+                newGame.addSummoner(id);
+                return newGame;
+            }
+        //}
+       // else {
         
-        }
+      //  }
     }
 }
-module.exports = { RoomContainer };
+module.exports = { RoomContainer }

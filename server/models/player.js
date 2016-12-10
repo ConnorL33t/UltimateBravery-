@@ -1,13 +1,15 @@
 
 class Player { 
 // TODO:: 
-    constructor ({id, name}) {
-        this.id = id,
-        this.name = name;
-        this.team;
-        this.champion;
-        this.items;
-        this.role;
+    constructor () {
+        this.player = {
+            id: 10
+        }
+        //this.name = name;
+        //this.team;
+        //this.champion;
+        //this.items;
+        //this.role;
 
     }
     getPlayersChampions () {
@@ -16,3 +18,4 @@ class Player {
         })
     }
 }
+module.exports = { Player }

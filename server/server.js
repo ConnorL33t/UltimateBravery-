@@ -12,7 +12,7 @@ const {generateMessage} = require('./utils/message');
 const {RoomContainer} = require('./models/roomcontainer');
 // set up server / sockets / path to front end
 const publicPath = path.join(__dirname, '../public');
-const port = process.env.PORT || 3000;
+const port = 3000;
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
@@ -29,16 +29,18 @@ app.use(express.static(publicPath));
 
 io.on('connection', (socket) => {
     console.log('new user connected');
-    socket.on('join', (clientData, callback) => {
+    socket.on('join', (clientData) => {
         socket.emit('newMessage', generateMessage('Admin', 'Welcome to the lobby, when 10 players have joined, the randomization will begin.'))
 
         // add user to "global" user list (removed later when successfully added to a room)
-    var user = users.addUser(socket.id);
+    var user = users.addUser(clientData);
     // add user to an open or new game.
-    var currentGame = rooms.addUserToGame(socket.id);
-    socket.join(currentGame.id);
-    io.to(gameId).emit('updateUsersList', currentGame.getRoomsPlayers());
-    users.removeUser(socket.id);
+    var currentGame = rooms.addUserToGame(clientData);
+    currentGameID = currentGame.getId();
+    socket.join(currentGameID);
+    socket.emit('game', `${currentGameID}`)
+//    io.to(gameId).emit('updateUsersList', currentGame.getRoomsPlayers());
+ //   users.removeUser(socket.id);
 
 
 

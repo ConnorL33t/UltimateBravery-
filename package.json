@@ -14,16 +14,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0",
-    "moment": "^2.15.1",
-    "socket.io": "^1.4.8",
     "babel-preset-stage-1": "^6.1.18",
+    "express": "^4.14.0",
     "lodash": "^3.10.1",
+    "moment": "^2.15.1",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "socket.io": "^1.4.8"
   },
   "devDependencies": {
     "expect": "^1.20.2",

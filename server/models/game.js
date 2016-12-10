@@ -1,49 +1,53 @@
+var uuid = require('node-uuid')
 const {Player} = require('./player')
+
 class Game {
-    constructor () {
-        this.id;
+    constructor() {
+        this.id = this.createId();
         this.summoners = [];
-        this.redTeam = [{
-            assignedRoles,
-            // summoners will be assigned when be assigned when randomization  is done. 
-            summoners
-        }];
-        this.blueTeam = [{
-            assignedRoles,
-            summoners
-        }];
+        this.redTeam = [];
+        this.blueTeam = [];
         this.assignedChampions = [];
-        
+
         this.full = false;
     }
+    createId() {
+        var id = uuid.v1({
+            node: [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
+            clockseq: 0x1234,
+            msecs: new Date('2011-11-01').getTime(),
+            nsecs: 5678
+        });
+        return id;
+    }
 
-    addSummoner () {
-       var user = this.summoners[id]
-       user = new Player();
-       user.getPlayersChampions(); 
-       var summoner = this.summoners[clientData.id]
-       summoner.getPlayersChampions();
-       if(this.redTeam.length < this.blueTeam.length){
-           this.redTeam.push(summoner.id);
-           summoner.team = this.redTeam; 
-           this.summoners.length === 10 ? gameIsFull() : this.full = false;
-       } else {
-           this.blueTeam.push(summoner.id);
-           summoner.team = this.blueTeam;
-           this.summoners.length ===  10 ? gameIsFull() : this.full = false; 
-       }
-       return;
-       
+    addSummoner() {
+        var user = new Player();
+
+        //  user.getPlayersChampions(); 
+        if (this.redTeam.length < this.blueTeam.length || this.redTeam.length === 0) {
+            this.redTeam.push(user);
+            user.team = this.redTeam;
+            this.summoners.length === 10 ? gameIsFull() : this.full = false;
+        } else {
+            this.blueTeam.push(user);
+            user.team = this.blueTeam;
+            this.summoners.length === 10 ? gameIsFull() : this.full = false;
+        }
+        return;
+
     }
-    gameIsFull () {
-       this.full = true; 
-       // randomizeRedTeam(this.summoners);
+    gameIsFull() {
+        this.full = true;
+        // randomizeRedTeam(this.summoners);
     }
-    getPlayers () {
+    getPlayers() {
         return (this.redTeam, this.blueTeam);
 
     }
+    getId() {
+        return this.id
+    }
 
-        
 }
 module.exports = { Game }

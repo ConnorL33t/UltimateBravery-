@@ -4,10 +4,10 @@ class Users {
         this.users = []
     }
 
-    addUser({id}) {
-        this.users.push(user)
+    addUser(id) {
+        this.users.push(id)
         
-        return user;
+        return this.users.filter((user) => user.id === id);
     }
     removeUser(id) {
         var user = this.getUser(id);
