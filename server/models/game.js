@@ -12,30 +12,40 @@ class Game {
         this.full = false;
     }
     createId() {
-        var id = uuid.v1({
-            node: [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
-            clockseq: 0x1234,
-            msecs: new Date('2011-11-01').getTime(),
-            nsecs: 5678
-        });
+        var id = uuid.v4();
         return id;
     }
 
-    addSummoner() {
-        var user = new Player();
-
+    addSummoner(id) {
+        var user = new Player(id);
+        this.summoners.push(user)
         //  user.getPlayersChampions(); 
         if (this.redTeam.length < this.blueTeam.length || this.redTeam.length === 0) {
-            this.redTeam.push(user);
+            this.redTeam.push(user.player.id);
             user.team = this.redTeam;
-            this.summoners.length === 10 ? gameIsFull() : this.full = false;
+            this.summoners.length === 10 ? this.gameIsFull() : this.full = false;
         } else {
-            this.blueTeam.push(user);
+            this.blueTeam.push(user.player.id);
             user.team = this.blueTeam;
-            this.summoners.length === 10 ? gameIsFull() : this.full = false;
+            this.summoners.length === 10 ? this.gameIsFull() : this.full = false;
         }
         return;
 
+    }
+    removePlayer(id) {
+        var player = this.getPlayer(id)
+        // delete user from summoners 
+        var deleteFromSummoner = this.summoners.filter((summoner) => summoner.player.id === id)[0];
+        var summonersIndex = this.summoners.indexOf(deleteFromSummoner);
+        this.summoners.splice(summonersIndex, 1);
+        // delete user from team
+        var user = player.team.filter((summoner) => summoner === id)[0];
+        var indexOf = player.team.indexOf(user);
+        player.team.splice(indexOf, 1);
+        // delete assigned champ
+        
+        // set flag to false 
+        this.full = false;
     }
     gameIsFull() {
         this.full = true;
@@ -47,6 +57,9 @@ class Game {
     }
     getId() {
         return this.id
+    }
+    getPlayer(id) {
+        return this.summoners.filter((summoner) => summoner.player.id === id)[0];
     }
 
 }

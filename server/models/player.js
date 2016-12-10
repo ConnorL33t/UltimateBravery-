@@ -1,10 +1,11 @@
 
 class Player { 
 // TODO:: 
-    constructor () {
+    constructor (id) {
         this.player = {
-            id: 10
+            id: id
         }
+        this.game;
         //this.name = name;
         //this.team;
         //this.champion;

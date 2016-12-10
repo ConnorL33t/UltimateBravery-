@@ -17,7 +17,6 @@ var server = http.createServer(app);
 var io = socketIO(server);
 // initialize and room container 
 var rooms = new RoomContainer();
-
 // serve
 
 app.use(express.static(publicPath));
@@ -29,7 +28,7 @@ io.on('connection', (socket) => {
     socket.on('join', (clientData) => {
         socket.emit('newMessage', generateMessage('Admin', 'Welcome to the lobby, when 10 players have joined, the randomization will begin.'))
         // add user to an open or new game.
-        var currentGame = rooms.addUserToGame(clientData);
+        var currentGame = rooms.addUserToGame(socket.id);
         currentGameID = currentGame.getId();
         socket.join(currentGameID);
         socket.emit('game', `${currentGameID}`)
@@ -54,7 +53,9 @@ io.on('connection', (socket) => {
     // });
 
     socket.on('disconnect', () => {
-
+        // rooms.removeUser returns game / socket room ID
+        var room = rooms.removeUser(socket.id)
+        socket.leave(room);
         console.log('client disconnected')
     });
 });
