@@ -22,7 +22,6 @@ var rooms = new RoomContainer();
 app.use(express.static(publicPath));
 
 // socket events
-
 io.on('connection', (socket) => {
     console.log('new user connected');
     socket.on('join', (clientData) => {
@@ -31,35 +30,38 @@ io.on('connection', (socket) => {
         var currentGame = rooms.addUserToGame(socket.id);
         currentGameID = currentGame.getId();
         socket.join(currentGameID);
+        var player = currentGame.getPlayer(socket.id)
+        player.requestData(socket);
+        console.log(socket.id + ' has joined ' + currentGameID)
         socket.emit('game', `${currentGameID}`)
-        //    io.to(gameId).emit('updateUsersList', currentGame.getRoomsPlayers());
-        //   users.removeUser(socket.id);
-
-
-
-
+       if(currentGame.summoners.length === 10) {
+            currentGame.full = true;
+            currentGame.gameIsFull();      
+       } else {
+           currentGame.full = false;
+       } 
     });
-
-
-
     // io.to().emit();
-
     // socket.emit('newMessage', generateMessage('Admin', 'Welcome to Ultimate Bravery!'));
     // socket.broadcast.to(params.room).emit('newMessage', generateMessage('', `${params.name} has joined.`));
-
     // socket.on('createMessage', (message, callback) => {
     //     io.emit('newMessage', generateMessage(message.from, message.text));
     //     callback('this is from the server.');
     // });
-
     socket.on('disconnect', () => {
         // rooms.removeUser returns game / socket room ID
         var room = rooms.removeUser(socket.id)
         socket.leave(room);
+        console.log (socket.id + ' has left ' + room)
         console.log('client disconnected')
     });
+    // socket.on('champions', () => {
+    //     var room = rooms.getUsersGame(socket.id)
+    //     var user = room.ge 
+    // })
+    // socket.on('summoner name', () => {
+    // })
 });
-
 server.listen(port, () => {
     console.log(
         `port is running on ${port}`
