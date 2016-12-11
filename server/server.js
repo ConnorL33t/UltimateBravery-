@@ -19,7 +19,23 @@ var io = socketIO(server);
 var rooms = new RoomContainer();
 // serve
 
+
+
+
 app.use(express.static(publicPath));
+// validate summoner name
+app.get('/summoner/:summonerName', function (req, res) {
+    var base = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/',
+        apikey = '?api_key=RGAPI-689BE4DC-5FF5-4088-B688-808979F36E57',
+		url = base + req.params.summonerName + apikey;
+
+    request(url, function (err, response, body) {
+        res.send(body)
+    })
+
+})
+
+
 
 // socket events
 io.on('connection', (socket) => {
@@ -66,4 +82,5 @@ server.listen(port, () => {
     console.log(
         `port is running on ${port}`
     );
+
 });
