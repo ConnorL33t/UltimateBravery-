@@ -1,13 +1,17 @@
-// var randomize = (summoners) => {
-//     if(summoners.length != 10) {
-//         return summoners 
+// const {randomizeChamps} = require('./randomize_champs')
+// const {randomizeRoles} = require('./randomize_roles')
+// const {randomizeItems} = require('./randomize_items')
+
+// var randomize = (game) => {
+//     if(game.summoners === 10){
+//         var assignedChamps = randomizeChamps(game.summoners)
+//         var assignedRoles = randomizeRoles(game.summoners)
+//         var assignedItems = randomizeItems(assignedRoles)
 //     }
-//     else { 
-//         var champsAssigned = randomizeChampions(summoners)
-//         var rolesAssigned = randomizeRoles(summoners)
-//         var itemsAssigned = randomizeItems(rolesAssigned)
+//     else {
+
 //     }
-// };
+// }
 
 
 // module.exports = { generateMessage };

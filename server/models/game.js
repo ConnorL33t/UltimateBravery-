@@ -1,4 +1,3 @@
-const {randomize} = require('../utils/randomize');
 var uuid = require('node-uuid');
 const {Player} = require('./player');
 
@@ -10,12 +9,15 @@ class Game {
         this.blueTeam = [];
         this.assignedChampions = [];
         this.full = false;
+        this.deletable = false; 
     }
     createId() {
         var id = uuid.v4();
         return id;
     }
-
+    getStatus() {
+        return `${this.deletable}`        
+    }
     addSummoner(id) {
         var user = new Player(id);
         this.summoners.push(user)
@@ -63,5 +65,6 @@ class Game {
     getPlayer(id) {
         return this.summoners.filter((summoner) => summoner.id === id)[0];
     }
+
 }
 module.exports = { Game }

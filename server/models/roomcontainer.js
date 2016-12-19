@@ -1,4 +1,5 @@
 const {Game} = require('./game')
+const {randomize} = require('../utils/randomize');
 
 class RoomContainer {
     constructor() {
@@ -52,6 +53,14 @@ class RoomContainer {
         if(user){
         var usersGame = user.gameId
         return this.games.filter((game) => usersGame === game.id)[0];
+        }
+    }
+    randomizeGame (game) {
+        if(game.full === true){
+        randomize(game)
+        }
+        else{
+        
         }
     }
 }
