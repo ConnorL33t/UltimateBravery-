@@ -1,3 +1,25 @@
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
+import ReduxPromise from 'redux-promise';
+import reducers from './reducers';
+
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <Router history={browserHistory} route={routes} />
+  </Provider>
+  , document.querySelector('.container'));
+
+
+
+  
 // var socket = io();
 // socket.on('connect', function () {
 //     console.log('connected to server');
@@ -44,21 +66,3 @@
 //         messageTextbox.val('');
 //     });
 // });
-
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import { Router, browserHistory } from 'react-router';
-import routes from './routes';
-import ReduxPromise from 'redux-promise';
-import reducers from './reducers';
-
-const createStoreWithMiddleware = applyMiddleware()(createStore);
-
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory} route={routes} />
-  </Provider>
-  , document.querySelector('.container'));
