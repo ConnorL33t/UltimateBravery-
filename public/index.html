@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Ultimate Bravery</title>
-
+    <title>Document</title>
 </head>
-
-<body class="centered-form">
-    <div class="container"></div>
+<body>
 
 
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script> 
+    socket = io();
+    socket.emit('connection')
+    socket.emit('join')
+    </script>
 </body>
-<script src="/bundle.js"></script>
 
 </html>
